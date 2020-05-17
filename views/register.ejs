@@ -1,0 +1,57 @@
+<!DOCTYPE ejs>
+<html lang="en">
+<head>
+    <title>Sign Up | O-Donate</title>
+    <%- include("partials/header") %>
+
+<style>
+    div.transbox {
+        margin: 60px auto;
+        padding: 60px 120px 80px 120px;
+        background: #efefef;
+        width: 100%;
+        opacity: 1;
+        border-radius: 5px;
+    }
+    div.box {
+        font-weight: bold;
+        color: #000000;
+    }
+    
+    .bgimg {
+        background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+        min-height: 100%;
+        background-size: cover;
+    }
+</style>  
+
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <div class="bgimg">
+        <div class="container" style="width: 35%; margin: 25px auto; padding-top: 50px;">
+            <div class="transbox">
+                <form action="/register" method="POST">
+                    <div class="box">
+                    <h2 style="text-align: center;">Register</h2>
+                    <div class="form-group">
+                        <label for="User">User Name:</label>
+                        <input type="text" class="form-control" id="User" placeholder="Enter User Name" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email">Email:</label>
+                        <input type="text" class="form-control" id="Email" placeholder="Enter E-mail" name="email" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

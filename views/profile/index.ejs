@@ -1,0 +1,35 @@
+<!DOCTYPE ejs>
+<html lang="en">
+<head>
+    <title>Profile | O-Donate</title>
+    <%- include("../partials/header") %>
+</head>
+<body>
+    <%- include("../partials/navbar") %>
+    <table align="center" class="table" style="width: 50%;">
+        <tbody>
+            <tr>
+                <th style="border-right: 3px solid black; width: 30%;">
+                    <div class="container" style="margin: 25px auto; padding-top: 100px;">
+                        <a href="profile/edit-username">Change Username</a><p></p>
+                        <a href="#">Change Password</a><p></p>
+                        <a href="#">Change Data&Contact</a><p></p>
+                    </div>
+                </th>
+                <th>
+                    <div class="container" style="margin-right: 50% auto; padding-top: 100px;">
+                        <p style="font-size: 40px; font-weight: bold;"><%= currentUser.username %></p>
+                        <p style="font-weight: bold;">Name : <%= currentUser.information[0].name %></p>
+                        <p style="font-weight: bold;">Email : <%= currentUser.information[0].email %></p>
+                        <p><%= currentUser.information[0].description %></p>
+                        <p>----- Contact -----</p>
+                        <p>Phone : <%= currentUser.contact[0].phone %></p>
+                        <p>Facebook : <%= currentUser.contact[0].facebookN %></p>
+                        <p>Website : <%= currentUser.contact[0].websiteN %></p>
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

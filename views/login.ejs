@@ -1,0 +1,58 @@
+<!DOCTYPE ejs>
+<html lang="en">
+<head>
+    <title>Sign In | O-Donate</title>
+    <%- include("partials/header") %>
+    <style>
+        div.transbox {
+            margin: 60px auto;
+            padding: 60px 120px 80px 120px;
+            background: #efefef;
+            width: 100%;
+            opacity: 1;
+            border-radius: 5px;
+        }
+        div.box {
+            font-weight: bold;
+            color: #000000;
+        }
+        
+        .bgimg {
+            background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+            min-height: 100%;
+            background-size: cover;
+        }
+    </style> 
+</head>
+<body>
+    <%- include("partials/navbar") %>
+
+    <div class="bgimg">
+        <div class="container" style="width: 35%; margin: 25px auto; padding-top: 50px;">
+            <div class="transbox">
+                <form action="/login" method="POST">
+                    <div class="box">
+                    <h2 style="text-align: center;">Login</h2>
+        
+                    <div class="form-group">
+                        <label for="Username">Username:</label>
+                        <input type="text" class="form-control" id="Email" placeholder="Enter E-mail" name="username" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+                    </div>
+                
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember" > Remember Me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
