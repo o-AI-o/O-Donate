@@ -25,10 +25,10 @@
     </style> 
 </head>
 <body>
-    <%- include("partials/navbar") %>
-
     <div class="bgimg">
-        <div class="container" style="width: 35%; margin: 25px auto; padding-top: 50px;">
+    <%- include("partials/navbar") %>
+        <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
+            <%- include("partials/flash") %>
             <div class="transbox">
                 <form action="/login" method="POST">
                     <div class="box">

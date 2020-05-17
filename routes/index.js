@@ -43,9 +43,10 @@ router.post('/register', function(req,res){
         }]
     });
 
-    db_user.register(userReg, req.body.password, function(err, db_user){
+    db_user.register(userReg, req.body.password, function(err, user){
         if(err) return res.render('register');
         passport.authenticate('local')(req, res, function(){
+            req.flash('success', 'Welcome to EduTarot, ' + user.username);
             res.redirect('/hidden');
         });
     });
@@ -53,6 +54,7 @@ router.post('/register', function(req,res){
 
 router.get('/logout', function(req,res){
     req.logOut();
+    req.flash('success', 'You log out successfully');
     res.redirect("/login");
 });
 
