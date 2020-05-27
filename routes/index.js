@@ -29,9 +29,9 @@ router.post('/register', function(req,res){
     const userReg = new db_user({
         username: req.body.username,
         information: [{
-            name: req.body.realname,
+            name: req.body.name,
             email: req.body.email,
-            description: "I'm test user",
+            description: reg.body.description,
             creditnum: "0000-0000-0000"
         }],
         contact: [{
@@ -46,7 +46,7 @@ router.post('/register', function(req,res){
     db_user.register(userReg, req.body.password, function(err, user){
         if(err) return res.render('register');
         passport.authenticate('local')(req, res, function(){
-            req.flash('success', 'Welcome to EduTarot, ' + user.username);
+            req.flash('success', 'Welcome to O-Donate, ' + user.username);
             res.redirect('/hidden');
         });
     });

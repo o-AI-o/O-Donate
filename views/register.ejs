@@ -6,6 +6,12 @@
     <%- include("partials/header") %>
 
 <style>
+     .bgimg {
+        background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+        min-height: 100%;
+        background-size: cover;
+        opacity: 0.9;
+    }
     
     .form-group {
         text-align: left;
@@ -16,6 +22,7 @@
 	    margin: 50px auto;
 	    position: relative;
         text-align: center;
+        opacity: 1;
     }
 
     #box fieldset {
@@ -121,11 +128,11 @@
 <body>
     
     <%- include("partials/navbar") %>
-    
+    <div class="bgimg">
         <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
                 <form id="box" action="/register" method="POST">
-                        
                         <ul style="text-align: center;" id="progressbar">
+                            
                             <li class="active">Create Account</li>
                             <li>Your Profile</li>
                             <li>Profile Picture</li>
@@ -163,22 +170,22 @@
                         <h3 style="text-align: center;">Your Profile</h2>
                         <div class="form-group">
                             <label for="Name">Name:</label>
-                            <input type="text" class="form-control" id="Name" placeholder="Enter Your Name" name="Name" required>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" name="name" required>
                         </div>
     
                         <div class="form-group">
                             <label for="Surname">Surname:</label>
-                            <input type="text" class="form-control" id="Surname" placeholder="Enter Your Surname" name="Surname" required>
+                            <input type="text" class="form-control" id="surname" placeholder="Enter Your Surname" name="surname" required>
                         </div>
                     
                         <div class="form-group">
                             <label for="pwd">Phone Number:</label>
-                            <input type="tel" class="form-control" id="Phone" placeholder="000-000-0000" name="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
+                            <input type="tel" class="form-control" id="phone" placeholder="000-000-0000" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
                         </div>
     
                         <div class="form-group">
                             <label for="pwd">About You:</label>
-                            <textarea type="text" class="form-control" rows="5" id="About" placeholder="Enter Information About You" name="About"></textarea>
+                            <textarea type="text" class="form-control" rows="5" id="description" placeholder="Enter Information About You" name="description"></textarea>
                         </div>
                         
                         <input type="button" style="text-align: center;" name="previous" class="previous action-button" value="Previous" />
@@ -189,17 +196,21 @@
                         <fieldset>
                             <h3 style="text-align: center;">Step 3</h2>
                             <h3 style="text-align: center;">Profile Picture</h2>
-                            
+                                
+                                <div class="form-group">
+                                    <label for="pwd">About You:</label>
+                                    <textarea type="text" class="form-control" rows="5" id="description" placeholder="Enter Information About You" name="description"></textarea>
+                                </div>
                             
                             <input type="button" style="text-align: center;" name="previous" class="previous action-button" value="Previous" />
-                            <input type="submit" style="text-align: center;"name="submit" class="submit action-button" value="Submit" />
+                            <input type="submit" style="text-align: center;" name="submit" class="next action-button" value="Submit" />
     
                         </fieldset>
                     
                 </form>
             
         </div>
-    
+    </div>
 </body>
 </html>
 
