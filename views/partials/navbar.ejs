@@ -10,10 +10,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="/add">Add<span class="sr-only">(current)</span></a>
-            </li>
             
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,6 +33,9 @@
                 <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" class="nav-link" href="/register">Start O-danate</a>
             </li>
             <% } else { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/add">Add<span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/profile">Welcome! <%= currentUser.username %></a>
             </li>

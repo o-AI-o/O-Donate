@@ -1,3 +1,4 @@
 # O-Donate
-Pull Test
-Pull Test 2
+new register agian (still working on)
+register page require ไม่ได้อีกแล้ว ;-;
+new profile page (still working on)

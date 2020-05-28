@@ -2,39 +2,145 @@
 <html lang="en">
 <head>
     <title>Sign Up | O-Donate</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <%- include("partials/header") %>
 
 <style>
-    div.transbox {
-        margin: 60px auto;
-        padding: 60px 120px 80px 120px;
-        background: #efefef;
-        width: 100%;
-        opacity: 1;
-        border-radius: 5px;
-    }
-    div.box {
-        font-weight: bold;
-        color: #000000;
-    }
-    
-    .bgimg {
+     .bgimg {
         background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
         min-height: 100%;
         background-size: cover;
+        opacity: 0.9;
     }
+    
+    .form-group {
+        text-align: left;
+    }
+
+    #box {
+	    width: 400px;
+	    margin: 50px auto;
+	    position: relative;
+        text-align: center;
+        opacity: 1;
+    }
+
+    #box fieldset {
+	    background: white;
+	    border: 0 none;
+	    border-radius: 3px;
+	    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	    padding: 20px 30px;
+	    box-sizing: border-box;
+	    width: 100%;
+	    margin: 0 10%;
+	
+	    /*stacking fieldsets above each other*/
+	    position: relative;
+    }   
+
+    #box fieldset:not(:first-of-type) {
+	    display: none;
+    }
+
+    #box .form-group {
+	    padding: 10px;
+	    margin-bottom: 10px;
+	    width: 100%;
+	    box-sizing: border-box;
+	    color: #2C3E50;
+	  
+    }
+    /*buttons*/
+    #box .action-button {
+	    width: 100px;
+	    background: #27AE60;
+	    font-weight: bold;
+	    color: white;
+	    border: 0 none;
+	    border-radius: 1px;
+	    cursor: pointer;
+	    padding: 10px 5px;
+	    margin: 10px 5px;
+    }
+
+    #box .action-button:hover, #box .action-button:focus {
+	    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+    }   
+
+    #progressbar {
+	    margin-bottom: 30px;
+	    overflow: hidden;
+	    /*CSS counters to number the steps*/
+	    counter-reset: step;
+    }
+
+    #progressbar li {
+	    list-style-type: none;
+	    color: black;
+	    text-transform: uppercase;
+	    font-size: 9px;
+	    width: 33.33%;
+	    float: left;
+	    position: relative;
+    }
+
+    #progressbar li:before {
+	    content: counter(step);
+	    counter-increment: step;
+	    width: 20px;
+	    line-height: 20px;
+	    display: block;
+	    font-size: 10px;
+	    color: #333;
+	    background: white;
+	    border-radius: 3px;
+	    margin: 0 auto 5px auto;
+    }
+
+    /*progressbar connectors*/
+    #progressbar li:after {
+	    content: '';
+	    width: 100%;
+	    height: 2px;
+	    background: white;
+	    position: absolute;
+	    left: -50%;
+	    top: 9px;
+	    z-index: -1; /*put it behind the numbers*/
+    }
+
+    #progressbar li:first-child:after {
+	    /*connector not needed before the first step*/
+	    content: none; 
+    }   
+    /*marking active/completed steps green*/
+    /*The number of the step and the connector before it = green*/
+    #progressbar li.active:before,  #progressbar li.active:after{
+	    background: #27AE60;
+	    color: white;
+    }
+
+    
 </style>  
 
 </head>
 <body>
-    <div class="bgimg">
-    <%- include("partials/navbar") %>
     
+    <%- include("partials/navbar") %>
+    <div class="bgimg">
         <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
-            <div class="transbox">
-                <form action="/register" method="POST">
-                    <div class="box">
-                    <h2 style="text-align: center;">Register</h2>
+                <form id="box" action="/register" method="POST">
+                        <ul style="text-align: center;" id="progressbar">
+                            
+                            <li class="active">Create Account</li>
+                            <li>Your Profile</li>
+                            <li>Profile Picture</li>
+                        </ul>
+                    
+                    <fieldset>
+                    <h3 style="text-align: center;">Step 1</h2>
+                    <h3 style="text-align: center;">Create Your Account</h2>
                     <div class="form-group">
                         <label for="User">User Name:</label>
                         <input type="text" class="form-control" id="User" placeholder="Enter User Name" name="username" required>
@@ -49,10 +155,132 @@
                         <label for="pwd">Password:</label>
                         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <div class="form-group">
+                        <label for="pwd">Confirm Password:</label>
+                        <input type="password" class="form-control" id="cfpwd" placeholder="Confirm password" name="cfpassword" required>
+                    </div>
+                    
+                    <input type="button" style="text-align: center;" name="next" class="next action-button" value="Next" />
+
+                    </fieldset>
+
+                    <fieldset>
+                        <h3 style="text-align: center;">Step 2</h2>
+                        <h3 style="text-align: center;">Your Profile</h2>
+                        <div class="form-group">
+                            <label for="Name">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" name="name" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="Surname">Surname:</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Enter Your Surname" name="surname" required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="pwd">Phone Number:</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="000-000-0000" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="pwd">About You:</label>
+                            <textarea type="text" class="form-control" rows="5" id="description" placeholder="Enter Information About You" name="description"></textarea>
+                        </div>
+                        
+                        <input type="button" style="text-align: center;" name="previous" class="previous action-button" value="Previous" />
+                        <input type="button" style="text-align: center;" name="next" class="next action-button" value="Next" />
+
+                        </fieldset>
+
+                        <fieldset>
+                            <h3 style="text-align: center;">Step 3</h2>
+                            <h3 style="text-align: center;">Profile Picture</h2>
+                                
+                                <div class="form-group">
+                                    <label for="pwd">About You:</label>
+                                    <textarea type="text" class="form-control" rows="5" id="description" placeholder="Enter Information About You" name="description"></textarea>
+                                </div>
+                            
+                            <input type="button" style="text-align: center;" name="previous" class="previous action-button" value="Previous" />
+                            <input type="submit" style="text-align: center;" name="submit" class="next action-button" value="Submit" />
+    
+                        </fieldset>
+                    
                 </form>
-            </div>
+            
         </div>
     </div>
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+
+var current_fs, next_fs, previous_fs; //fieldsets
+var opacity;
+
+$(".next").click(function(){
+
+current_fs = $(this).parent();
+next_fs = $(this).parent().next();
+
+//Add Class Active
+$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+//show the next fieldset
+next_fs.show();
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+next_fs.css({'opacity': opacity});
+},
+duration: 600
+});
+});
+
+$(".previous").click(function(){
+
+current_fs = $(this).parent();
+previous_fs = $(this).parent().prev();
+
+//Remove class active
+$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+//show the previous fieldset
+previous_fs.show();
+
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+previous_fs.css({'opacity': opacity});
+},
+duration: 600
+});
+});
+
+$('.radio-group .radio').click(function(){
+$(this).parent().find('.radio').removeClass('selected');
+$(this).addClass('selected');
+});
+
+$(".submit").click(function(){
+return false;
+})
+
+});
+</script>

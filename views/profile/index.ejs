@@ -3,33 +3,61 @@
 <head>
     <title>Profile | O-Donate</title>
     <%- include("../partials/header") %>
+
+<style>
+img {
+    width: 100%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;+
+  color: black;
+}
+</style>
+
 </head>
 <body>
     <%- include("../partials/navbar") %>
-    <table align="center" class="table" style="width: 50%;">
-        <tbody>
-            <tr>
-                <th style="border-right: 3px solid black; width: 30%;">
-                    <div class="container" style="margin: 25px auto; padding-top: 100px;">
-                        <a href="profile/edit-username">Change Username</a><p></p>
-                        <a href="#">Change Password</a><p></p>
-                        <a href="#">Change Data&Contact</a><p></p>
-                    </div>
-                </th>
-                <th>
-                    <div class="container" style="margin-right: 50% auto; padding-top: 100px;">
-                        <p style="font-size: 40px; font-weight: bold;"><%= currentUser.username %></p>
-                        <p style="font-weight: bold;">Name : <%= currentUser.information[0].name %></p>
-                        <p style="font-weight: bold;">Email : <%= currentUser.information[0].email %></p>
-                        <p><%= currentUser.information[0].description %></p>
-                        <p>----- Contact -----</p>
-                        <p>Phone : <%= currentUser.contact[0].phone %></p>
-                        <p>Facebook : <%= currentUser.contact[0].facebookN %></p>
-                        <p>Website : <%= currentUser.contact[0].websiteN %></p>
-                    </div>
-                </th>
-            </tr>
-        </tbody>
-    </table>
+
+    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
+            <h1><%= currentUser.username %></h1>
+            <p class="title">Name : <%= currentUser.information[0].name %></p>
+            <p>Harvard University</p>
+            <div style="margin: 24px 0;">
+              <a href="#"><i class="fa fa-dribbble"></i></a> 
+              <a href="#"><i class="fa fa-twitter"></i></a>  
+              <a href="#"><i class="fa fa-linkedin"></i></a>  
+              <a href="#"><i class="fa fa-facebook"></i></a> 
+            </div>
+            <p><a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="profile/edit-username">Change Username</a></p>
+        </div>
+    </div>
+   
+    
 </body>
 </html>
