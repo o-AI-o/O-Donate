@@ -28,19 +28,20 @@ router.get('/register', function(req,res){
 router.post('/register', function(req,res){
     const userReg = new db_user({
         username: req.body.username,
+        email: req.body.email,
         information: [{
-            name: req.body.name,
+            name: "-",
             email: req.body.email,
-            description: reg.body.description,
+            description: "-",
             creditnum: "0000-0000-0000"
         }],
-        contact: [{
-            phone: "-",
-            facebookN: "-",
-            facebookL: "-",
-            websiteN: "-",
-            websiteL: "-",
-        }]
+        // contact: [{
+        //     phone: "-",
+        //     facebookN: "-",
+        //     facebookL: "-",
+        //     websiteN: "-",
+        //     websiteL: "-",
+        // }]
     });
 
     db_user.register(userReg, req.body.password, function(err, user){

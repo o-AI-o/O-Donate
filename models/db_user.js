@@ -3,7 +3,6 @@ const   mongoose      = require("mongoose"),
 
 let userData = new mongoose.Schema({
     name        : String,
-    email       : String,
     description : String,
     creditnum   : String
 });
@@ -19,6 +18,7 @@ let contactData = new mongoose.Schema({
 let userSchema = new mongoose.Schema({
     username    : String,
     password    : String,
+    email       : String,
     information : [userData],
     contact     : [contactData]    
 });
