@@ -3,18 +3,50 @@
 <head>
     <title>All Category | O-Donate</title>
     <%- include("../partials/header") %>
+
+<style>
+   .img-thumbnail {
+     padding-bottom: 20px;
+     text-align: center;
+   }
+   
+   .row {
+     display: flex;
+     flex-wrap: wrap;
+   }
+</style>
+
 </head>
 <body>
     <%- include("../partials/navbar") %>
 
-    <div class="container" style="width: 35%; margin: 25px auto; padding-top: 100px;">
-       <div class="row">
-           <div class="col-lg-5 col-md-3 col-xs-1">
-           
+    <div class="container" style="margin: 25px auto; padding-top: 50px;">
+        <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-md-4">
+                <div class="img-thumbnail">
+                <p><img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="img-fluid"></p>
+                <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/children">Children</a>
+                </div>
+              </div>
+              
+              <div class="col-xs-12 col-md-4">
+                <div class="img-thumbnail">
+                <p><img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="img-fluid"></p>
+                <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/hospital">Hospital</a>
+                </div>
+              </div>
 
-           </div>
-       </div>
+              <div class="col-xs-12 col-md-4">
+                <div class="img-thumbnail">
+                <p><img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="img-fluid"></p>
+                <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/animals">Animals</a>
+                </div>
+              </div>
+
+              </div>
+          </div>
+        
     </div>
-
 </body>
 </html>

@@ -46,3 +46,21 @@ app.use('/profile', profileRoutes);
 app.listen(1412,function(){
     console.log('Example app listening on port 1412!');
 });
+
+
+
+app.get('/category',function (req,res){
+    res.render("fundraisers/category");
+});
+
+app.get('/children',function (req,res){
+    res.render("fundraisers/children");
+});
+
+app.get('/hospital',function (req,res){
+    res.render("fundraisers/hospital");
+});
+
+app.get('/animals',function (req,res){
+    res.render("fundraisers/animals");
+});
