@@ -22,7 +22,7 @@ img {
   color: grey;
 }
 
-button {
+/* button {
   border: none;
   outline: 0;
   display: inline-block;
@@ -32,7 +32,7 @@ button {
   text-align: center;
   cursor: pointer;
   width: 100%;
-}
+} */
 
 a {
   text-decoration: none;
@@ -42,9 +42,10 @@ a {
 
 </head>
 <body>
-    <%- include("../partials/navbar") %>
+   
 
-    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
+    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;"> 
+    <%- include("../partials/navbar") %>
         <div class="card">
             <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
             <h1><%= currentUser.username %></h1>

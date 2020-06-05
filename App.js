@@ -64,3 +64,11 @@ app.get('/hospital',function (req,res){
 app.get('/animals',function (req,res){
     res.render("fundraisers/animals");
 });
+
+app.get('/cDetail',function (req,res){
+    res.render("fundraisers/cDetail");
+});
+
+app.get('/donate',function (req,res){
+    res.render("fundraisers/donate");
+});
