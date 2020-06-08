@@ -4,49 +4,124 @@
     <title>Donate | O-Donate</title>
     <%- include("../partials/header") %>
     <style>
-    .img-thumbnail {
-     padding-bottom: 20px;
-     text-align: center;
-   }
 
-   .row {
-     display: flex;
-     flex-wrap: wrap;
-   }
     </style>
 </head>
 <body>
     <%- include("../partials/navbar") %>
    
     <% if (!currentUser) { %>
+        
         <h1 style="margin: 25px auto; padding-top: 50px; text-align: center;">Register 0r log in</h1>
         <% } else { %>
             <div class="container" style="margin: 25px auto; padding-top: 50px;">
-                <div class="container">
+              <div class="row" >
+               
+                <div class="col-md-8 order-md-1">
+                  <h4 class="mb-3">Donation Form</h4>
+                  <h1>Enter Your Amount</h1>
+                  <div class="input-group input-group-lg mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">฿</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+
+                  <form style="padding-top: 40px;" class="needs-validation" novalidate>
                     <div class="row">
-                      <div class="col-xs-12 col-lg-4">
-                        <div class="img-thumbnail">
-                          <img class="card-img-top" src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" alt="Card image cap">
-                          <h2 style="padding-top: 15px;" class="card-title">Card title</h2>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          
-                          <div class="progress">
-                            <div class="progress-bar bg-success" style="width:50%"></div>
-                          </div>
-        
-                          <div class="card-body" style="text-align: center;">
-                            <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/cDetail">More Detail</a>
-                          </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="firstName">First name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                          Valid first name is required.
                         </div>
                       </div>
-        
-                      
-                      
-                     
+                      <div class="col-md-6 mb-3">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                          Valid last name is required.
+                        </div>
+                      </div>
                     </div>
+            
+            
+                    <div class="mb-3">
+                      <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                      <input type="email" class="form-control" id="email" placeholder="Odonate@mail.com">
+                      <div class="invalid-feedback">
+                        Please enter a valid email address for shipping updates.
+                      </div>
+                    </div>
+            
+                    <div class="mb-3">
+                      <label for="address">Address</label>
+                      <input type="text" class="form-control" id="address" placeholder="11/111 Main St." required>
+                      <div class="invalid-feedback">
+                        Please enter your shipping address.
+                      </div>
+                    </div>
+            
+                 
+                    <div class="row">
+                      <div class="col-md-5 mb-3">
+                        <label for="country">Country</label>
+                        <select class="custom-select d-block w-100" id="country" required>
+                          <option value="">Select...</option>
+                          <option>United States</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a valid country.
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="state">State</label>
+                        <select class="custom-select d-block w-100" id="state" required>
+                          <option value="">Select...</option>
+                          <option>California</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please provide a valid state.
+                        </div>
+                      </div>
+                    </div>
+            
+                  
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-number">Credit card number</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                        <div class="invalid-feedback">
+                          Credit card number is required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">Expiration</label>
+                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                        <div class="invalid-feedback">
+                          Expiration date required
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="cc-cvv">CVV</label>
+                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                        <div class="invalid-feedback">
+                          Security code required
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Donate</button>
+                  </form>
                 </div>
-                
+              </div>
             </div>
+       
         <% } %>
 
     <%- include("../partials/footer") %>
