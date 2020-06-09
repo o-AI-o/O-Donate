@@ -7,11 +7,13 @@
 <style>
 img {
     width: 100%;
+    height: 25vw;
+    object-fit: cover;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 500px;
   margin: auto;
   text-align: center;
 }
@@ -20,7 +22,7 @@ img {
   color: grey;
 }
 
-button {
+/* button {
   border: none;
   outline: 0;
   display: inline-block;
@@ -30,7 +32,7 @@ button {
   text-align: center;
   cursor: pointer;
   width: 100%;
-}
+} */
 
 a {
   text-decoration: none;
@@ -40,14 +42,15 @@ a {
 
 </head>
 <body>
-    <%- include("../partials/navbar") %>
+   
 
-    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
+    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;"> 
+    <%- include("../partials/navbar") %>
         <div class="card">
             <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
             <h1><%= currentUser.username %></h1>
             <p class="title">Name : <%= currentUser.information[0].name %></p>
-            <p>Harvard University</p>
+            <p><%= currentUser.information[0].email %></p>
             <div style="margin: 24px 0;">
               <a href="#"><i class="fa fa-dribbble"></i></a> 
               <a href="#"><i class="fa fa-twitter"></i></a>  

@@ -1,0 +1,58 @@
+<!DOCTYPE ejs>
+<html lang="en">
+<head>
+    <title>Children Details | O-Donate</title>
+    <%- include("../partials/header") %>
+    <style>
+    .img-thumbnail {
+     padding-bottom: 20px;
+     text-align: center;
+   }
+
+   .row {
+     display: flex;
+     flex-wrap: wrap;
+   }
+    </style>
+</head>
+<body>
+    <%- include("../partials/navbar") %>
+    <div class="container" style="margin: 25px auto; padding-top: 50px;">
+        
+            <div class="row">
+              <div class="col-lg-12">
+                <h1 class="bd-title">Donation for something</h1>
+              </div>
+              
+              <!-- <div class="col-xs-12 col-lg-5">
+                <div class="img-thumbnail">
+                <p><img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="img-fluid"></p>
+                <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/cDetail">Donate</a>
+                </div>
+              </div> -->
+
+              <div class="col-xs-12 col-lg-5">
+                <img class="card-img-top" src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" alt="Card image cap">
+                <div class="card-body" style="text-align: center;">
+                  <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/donate">Donate</a>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-lg-7">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" style="width:50%"></div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+        
+    </div>
+    <%- include("../partials/footer") %>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE ejs>
+<html lang="en">
+<head>
+    <title>All Category | O-Donate</title>
+    <%- include("../partials/header") %>
+
+<style>
+   .card-body {
+     padding-bottom: 20px;
+     text-align: center;
+   }
+   
+   .row {
+     display: flex;
+     flex-wrap: wrap;
+   }
+</style>
+
+</head>
+<body>
+    <%- include("../partials/navbar") %>
+    
+    <div class="container" style="margin: 25px auto; padding-top: 50px;">
+        <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-lg-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/children">Children</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-xs-12 col-lg-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/hospital">Hospital</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-lg-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/animals">Animals</a>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+          </div>
+        
+    </div>
+</body>
+</html>

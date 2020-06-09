@@ -1,4 +1,3 @@
 # O-Donate
-new register agian (still working on)
-register page require ไม่ได้อีกแล้ว ;-;
-new profile page (still working on)
+ืใช้navbarตอนย่อจอได้แล้ว!!!!
+เพิ่มหน้าหมวดหมู่ตั่งต่างแต่น่าจะแก้อีก
