@@ -52,8 +52,6 @@ app.listen(1412,function(){
     console.log('Example app listening on port 1412!');
 });
 
-
-
 app.get('/category',function (req,res){
     res.render("fundraisers/category");
 });
