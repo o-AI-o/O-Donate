@@ -18,10 +18,12 @@ router.post('/edit-username', function (req,res){
     const userUpdate = {
         username: req.body.username
     };
-    currentUser = req.user.username;
-
-    db_user.updateOne({username: currentUser}, {$set: userUpdate}, function(err, user){
-        if(err) res.redirect('/profile/edit-username');
+    
+    db_user.updateOne(req.user, {$set: userUpdate}, function(err, user){
+        if(err) {
+            console.log(err);
+            res.redirect('/profile/edit-username');
+        }
         else res.redirect('/profile');
     });
 });

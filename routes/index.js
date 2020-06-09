@@ -6,56 +6,38 @@ const   db_user         = require('../models/db_user'),
 
 const   router          = express.Router();
 
-router.get('/', function(req,res){
+router.get('/', function(req, res){
     res.render("index");
 });
 
-router.get('/login', function(req,res){
+router.get('/login', function(req, res){
     res.render("login");
 });
 
-router.post('/login', passport.authenticate('local',{
-    successRedirect: '/hidden',
-    failureRedirect: '/login'
-}), function (req,res){
-
-});
-
-router.get('/register', function(req,res){
-    res.render("register");
-});
-
-router.post('/register', function(req,res){
-    const userReg = new db_user({
-        username: req.body.username,
-        email: req.body.email,
-        information: [{
-            name: "-",
-            email: req.body.email,
-            description: "-",
-            creditnum: "0000-0000-0000"
-        }],
-        // contact: [{
-        //     phone: "-",
-        //     facebookN: "-",
-        //     facebookL: "-",
-        //     websiteN: "-",
-        //     websiteL: "-",
-        // }]
-    });
-
-    db_user.register(userReg, req.body.password, function(err, user){
-        if(err) return res.render('register');
-        passport.authenticate('local')(req, res, function(){
-            req.flash('success', 'Welcome to O-Donate, ' + user.username);
-            res.redirect('/hidden');
+router.post('/login', function(req, res){
+    const userCheck = req.body.username;
+    db_user.findOne({username: userCheck}, function(err, user){
+        if(!user) {
+            req.flash('error', 'Username or Password incorrect.');
+            res.redirect('/login');
+        } else if (!user.confirmed){
+            req.flash('error', 'Your account is not verified. Please verify your Account.');
+            res.redirect('/login');
+        }
+        passport.authenticate('local', {
+            failureFlash: "Username or Password incorrect.",
+            failureRedirect: "/login",
+            successFlash: "Welcome to O-Donate, "+ user.username,
+            successRedirect: "/"
+        })(req, res, function(){
+            
         });
-    });
+    })
 });
 
-router.get('/logout', function(req,res){
+router.get('/logout', function(req, res){
     req.logOut();
-    req.flash('success', 'You log out successfully');
+    req.flash('success', 'Log out successfully');
     res.redirect("/login");
 });
 

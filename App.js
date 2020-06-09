@@ -11,6 +11,8 @@ const   db_fundraiser   = require('./models/db_fundraiser');
 
 const   indexRoutes     = require('./routes/index');
 const   profileRoutes   = require('./routes/profile');
+const   registerRoutes  = require('./routes/register');
+const   verifyRoutes    = require('./routes/verify');
 
 const   app             = express();
 
@@ -30,6 +32,7 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next){
+    res.locals.verifyUser = "-";
     res.locals.currentUser = req.user;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
@@ -42,6 +45,8 @@ passport.deserializeUser(db_user.deserializeUser());
 
 app.use('/', indexRoutes);
 app.use('/profile', profileRoutes);
+app.use('/register', registerRoutes);
+app.use('/verify', verifyRoutes);
 
 app.listen(1412,function(){
     console.log('Example app listening on port 1412!');
