@@ -9,10 +9,11 @@ const   express         = require("express"),
 const   db_user         = require('./models/db_user');
 const   db_fundraiser   = require('./models/db_fundraiser');
 
-const   indexRoutes     = require('./routes/index');
-const   profileRoutes   = require('./routes/profile');
-const   registerRoutes  = require('./routes/register');
-const   verifyRoutes    = require('./routes/verify');
+const   indexRoutes     = require('./routes/index'),
+        profileRoutes   = require('./routes/profile'),
+        registerRoutes  = require('./routes/register'),
+        verifyRoutes    = require('./routes/verify'),
+        fundraiserRoutes= require('./routes/fundraiser');
 
 const   app             = express();
 
@@ -47,31 +48,8 @@ app.use('/', indexRoutes);
 app.use('/profile', profileRoutes);
 app.use('/register', registerRoutes);
 app.use('/verify', verifyRoutes);
+app.use('/fundraiser', fundraiserRoutes);
 
 app.listen(1412,function(){
     console.log('Example app listening on port 1412!');
-});
-
-app.get('/category',function (req,res){
-    res.render("fundraisers/category");
-});
-
-app.get('/children',function (req,res){
-    res.render("fundraisers/children");
-});
-
-app.get('/hospital',function (req,res){
-    res.render("fundraisers/hospital");
-});
-
-app.get('/animals',function (req,res){
-    res.render("fundraisers/animals");
-});
-
-app.get('/cDetail',function (req,res){
-    res.render("fundraisers/cDetail");
-});
-
-app.get('/donate',function (req,res){
-    res.render("fundraisers/donate");
 });
