@@ -49,13 +49,14 @@ a {
         <div class="card">
             <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
             <h1><%= currentUser.username %></h1>
-            <p class="title">Name : <%= currentUser.firstname %></p>
+            <p class="title">Name : <%= currentUser.firstname %> <%= currentUser.lastname %></p>
             <p><%= currentUser.email %></p>
             <div style="margin: 24px 0;">
-              <a href="#"><i class="fa fa-dribbble"></i></a> 
-              <a href="#"><i class="fa fa-twitter"></i></a>  
-              <a href="#"><i class="fa fa-linkedin"></i></a>  
-              <a href="#"><i class="fa fa-facebook"></i></a> 
+              
+              <a href="<%= currentUser.discription %>"><i class="fa fa-facebook fa-lg"><%= currentUser.discription %></i></a> 
+              <a href="#"><i class="fa fa-twitter fa-lg"></i></a>  
+              <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+            
             </div>
             <p><a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="profile/edit-username">Change Username</a></p>
         </div>

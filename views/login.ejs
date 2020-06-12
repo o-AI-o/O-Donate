@@ -4,57 +4,78 @@
     <title>Sign In | O-Donate</title>
     <%- include("partials/header") %>
     <style>
-        div.transbox {
-            margin: 60px auto;
-            padding: 60px 120px 80px 120px;
-            background: #efefef;
-            width: 100%;
-            opacity: 1;
-            border-radius: 5px;
-        }
-        div.box {
-            font-weight: bold;
-            color: #000000;
-        }
-        
-        .bgimg {
-            background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-            min-height: 100%;
-            background-size: cover;
-        }
+    .wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-form{
+        width: 500px;
+        margin: 0 auto;
+        border: 1.5px solid #ddd;
+        padding: 3rem;
+        background: #ffffff;
+    }
+    .form-input{
+        background: #fafafa;
+        border: 1px solid #eeeeee;
+        padding: 12px;
+        width: 100%;
+    }
+    .form-group{
+        margin-bottom: 1.5rem;
+    }
+    .form-button{
+        background:rgb(92, 173, 173);
+        border: 1px solid #ddd;
+        color: #ffffff;
+        padding: 10px;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    .form-button:hover{
+        background: rgb(48, 136, 102);
+    }
+    .form-header{
+        text-align: center;
+        margin-bottom : 2rem;
+    }
     </style> 
 </head>
 <body>
-    <div class="bgimg">
+    
     <%- include("partials/navbar") %>
-        <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;">
+        
             <%- include("partials/flash") %>
-            <div class="transbox">
-                <form action="/login" method="POST">
-                    <div class="box">
-                        <h2 style="text-align: center;">Login</h2>
-                        <p>&nbsp;</p>
-            
+            <div class="container" style="width: 50%; margin: 25px auto; padding-top: 50px;">
+                <div class="wrap">
+                    <form class="login-form" action="/login" method="POST">
+                        <div style="padding-bottom: 0.7rem;" class="form-header">
+                            <h3 style="font-size: xx-large;">Sign In</h3>
+                        </div>
+        
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
-                    
+        
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" name="password" required>
                         </div>
-                    
+        
                         <div class="form-group form-check">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" name="remember" > Remember Me
                             </label>
                         </div>
-
-                        <p>&nbsp;</p>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+         
+                        <div class="form-group">
+                            <button style="margin-top: 1.25rem;" class="form-button" type="submit">Submit</button>
+                        </div>
+                            
+                                            
+                    </form>
+                </div>
+           
             </div>
-        </div>
-    </div>
 </body>
 </html>
