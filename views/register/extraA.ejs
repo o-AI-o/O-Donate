@@ -3,7 +3,7 @@
 <head>
     <title>Sign Up | O-Donate</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <%- include("../partials/header") %>
+    
 
 <style>
     .wrap {
@@ -13,9 +13,9 @@
     }
     .extraA-form{
         width: 500px;
-        margin: 0 auto;
+        margin: 4.5rem 0.5rem;
         border: 1.5px solid #ddd;
-        padding: 2rem;
+        padding: 3rem;
         background: #ffffff;
     }
     .form-input{
@@ -45,6 +45,16 @@
 
     mark{
         background-color: rgba(34, 185, 49, 0.685);
+    }
+
+    @media (max-width: 400px) {
+        .extraA-form{
+        width: 500px;
+        margin: 4.5rem 0.5rem;
+        border: 1.5px solid #ddd;
+        padding: 1.5rem;
+        background: #ffffff;
+        }
     }
 
 </style>  
@@ -91,7 +101,7 @@
         text-transform: uppercase;
     }
     .form-button:hover{
-        background: rgb(48, 136, 102);
+        background: rgb(58, 175, 130);
     }
     .form-header{
         text-align: center;
@@ -102,13 +112,23 @@
         background-color: rgba(34, 185, 49, 0.685);
     }
 
+    @media (max-width: 400px) {
+        .extraA-form{
+        width: 500px;
+        margin: 4.5rem 0.5rem;
+        border: 1.5px solid #ddd;
+        padding: 1.5rem;
+        background: #ffffff;
+        }
+    }
+
 </style>  
 
 </head>
 <body>
  
     <%- include("../partials/navbar") %>
-    <div class="container" style="width: 50%; margin: 25px auto; padding-top: 50px;">
+    <div class="container">
         <div class="wrap">
             <form class="extraA-form" action="/register/extraA" method="POST">
                 <div style="padding-bottom: 0.7rem;" class="form-header">

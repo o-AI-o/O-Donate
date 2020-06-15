@@ -53,3 +53,7 @@ app.use('/fundraiser', fundraiserRoutes);
 app.listen(1412,function(){
     console.log('Example app listening on port 1412!');
 });
+
+app.get("/add", function(req, res){
+    res.render("test/add");
+});

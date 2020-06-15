@@ -13,9 +13,9 @@
     }
     .extraB-form{
         width: 500px;
-        margin: 0 auto;
+        margin: 4.5rem 0.5rem;
         border: 1.5px solid #ddd;
-        padding: 2rem;
+        padding: 3rem;
         background: #ffffff;
     }
     .form-input{
@@ -36,15 +36,22 @@
         text-transform: uppercase;
     }
     .form-button:hover{
-        background: rgb(48, 136, 102);
+        background: rgb(58, 175, 130);
     }
     .form-header{
         text-align: center;
         margin-bottom : 2rem;
     }
 
-    mark{
-        background-color: rgba(34, 185, 49, 0.685);
+
+    @media (max-width: 400px) {
+        .extraB-form{
+        width: 500px;
+        margin: 4.5rem 0.5rem;
+        border: 1.5px solid #ddd;
+        padding: 1.5rem;
+        background: #ffffff;
+        }
     }
 
 </style>  
@@ -53,7 +60,7 @@
 <body>
    
     <%- include("../partials/navbar") %>
-    <div class="container" style="width: 50%; margin: 25px auto; padding-top: 50px;">
+    <div class="container" >
         <div class="wrap">
             <form class="extraB-form" action="/register/extraB" method="POST">
                 <div style="padding-bottom: 0.7rem;" class="form-header">
@@ -77,9 +84,18 @@
                                 <div class="form-inline">
                                     <select class="form-control" style="width:45%">
                                       <option>MM</option>
-                                      <option>01 - Janiary</option>
-                                      <option>02 - February</option>
-                                      <option>03 - February</option>
+                                      <option>01</option>
+                                      <option>02</option>
+                                      <option>03</option>
+                                      <option>04</option>
+                                      <option>05</option>
+                                      <option>06</option>
+                                      <option>07</option>
+                                      <option>08</option>
+                                      <option>09</option>
+                                      <option>10</option>
+                                      <option>11</option>
+                                      <option>12</option>
                                     </select>
                                     <span style="width:10%; text-align: center"> / </span>
                                     <select class="form-control" style="width:45%">

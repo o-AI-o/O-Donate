@@ -1,11 +1,9 @@
 <!DOCTYPE ejs>
 <html lang="en">
 <head>
-    <title>Sign Up | O-Donate</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Sign In | O-Donate</title>
     <%- include("../partials/header") %>
-
-<style>
+    <style>
     .wrap {
         display: flex;
         justify-content: center;
@@ -13,26 +11,35 @@
     }
     .complete-form{
         width: 500px;
-        margin: 0 auto;
+        margin: 4.5rem 0.5rem;
         border: 1.5px solid #ddd;
-        padding: 2rem;
+        padding: 3rem;
         background: #ffffff;
     }
-    
+    .form-input{
+        background: #fafafa;
+        border: 1px solid #eeeeee;
+        padding: 12px;
+        width: 100%;
+    }
     .form-group{
         margin-bottom: 1.5rem;
         text-align: center;
     }
-  
+    .form-button{
+        background:rgb(92, 173, 173);
+        border: 1px solid #ddd;
+        color: #ffffff;
+        padding: 10px;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    .form-button:hover{
+        background: rgb(58, 175, 130);
+    }
     .form-header{
         text-align: center;
         margin-bottom : 2rem;
-    }
-    
-    span {
-    content: "\2713";
-    color: green;
-    font-size: 100px;
     }
 
     mark{
@@ -40,30 +47,44 @@
         background-color: crimson;
     }
 
-</style>  
+    /* span {
+    content: "\2713";
+    color: green;
+    font-size: 100px;
+    } */ 
 
+    @media (max-width: 400px) {
+        .complete-form{
+        width: 500px;
+        margin: 4.5rem 0.5rem;
+        border: 1.5px solid #ddd;
+        padding: 1.5rem;
+        background: #ffffff;
+        }
+    }
+
+    </style> 
 </head>
 <body>
     
     <%- include("../partials/navbar") %>
-    <div class="container" style="width: 50%; margin: 25px auto; padding-top: 50px;">
-            <div class="wrap">
-                <form class="complete-form" action="/register" method="POST">
-                    <div style="padding-bottom: 0.7rem;" class="form-header">
-                        <h3 style="font-size: xx-large;">Create Completed</h3>
-                        <span>&#10003;</span>
-                        <p>Thank you for joining O-Donate</p>
-                        <p><mark>Please verify account to finish your register</mark></p>
-                    </div>                
-                            <div class="form-group">
-                                <a style="border: solid; padding: 10px 15px; color: white; background-color: rgb(92, 173, 173);" href="/register">Back to Log In</a>
-                            </div>
-                                        
-                </form>
-            </div>
-       
-    </div>
-        
-    
+    <div class="container">
+        <div class="wrap">
+            <form class="complete-form" action="/register" method="POST">
+                <div style="padding-bottom: 0.7rem;" class="form-header">
+                    <h3 style="font-size: xx-large;">Create Completed</h3>
+                    <span style="color: green; font-size: 100px;">&#10003;</span>
+                    <p>Thank you for joining O-Donate</p>
+                    <p><mark>Please verify account to finish your register</mark></p>
+                </div>                
+                        <div class="form-group">
+                            <a style="border: solid; padding: 10px 15px; color: white; background-color: rgb(92, 173, 173);" href="/login">Back to Log In</a>
+                        </div>
+                                    
+            </form>
+        </div>
+   
+</div>    
+           
 </body>
 </html>
