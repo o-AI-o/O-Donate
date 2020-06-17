@@ -2,127 +2,9 @@
 <html lang="en">
 <head>
     <title>Sign Up | O-Donate</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    
-
-<style>
-    .wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .extraA-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 3rem;
-        background: #ffffff;
-    }
-    .form-input{
-        background: #fafafa;
-        border: 1px solid #eeeeee;
-        padding: 12px;
-        width: 100%;
-    }
-    .form-group{
-        margin-bottom: 1.5rem;
-    }
-    .form-button{
-        background:rgb(92, 173, 173);
-        border: 1px solid #ddd;
-        color: #ffffff;
-        padding: 10px;
-        width: 100%;
-        text-transform: uppercase;
-    }
-    .form-button:hover{
-        background: rgb(48, 136, 102);
-    }
-    .form-header{
-        text-align: center;
-        margin-bottom : 2rem;
-    }
-
-    mark{
-        background-color: rgba(34, 185, 49, 0.685);
-    }
-
-    @media (max-width: 400px) {
-        .extraA-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 1.5rem;
-        background: #ffffff;
-        }
-    }
-
-</style>  
-
-</head>
-<body>
- 
-    <%- include("../partials/navbar") %>
-    <!DOCTYPE ejs>
-<html lang="en">
-<head>
-    <title>Sign Up | O-Donate</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <%- include("../partials/header") %>
-
-<style>
-    .wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .extraA-form{
-        width: 500px;
-        margin: 0 auto;
-        border: 1.5px solid #ddd;
-        padding: 2rem;
-        background: #ffffff;
-    }
-    .form-input{
-        background: #fafafa;
-        border: 1px solid #eeeeee;
-        padding: 12px;
-        width: 100%;
-    }
-    .form-group{
-        margin-bottom: 1.5rem;
-    }
-    .form-button{
-        background:rgb(92, 173, 173);
-        border: 1px solid #ddd;
-        color: #ffffff;
-        padding: 10px;
-        width: 100%;
-        text-transform: uppercase;
-    }
-    .form-button:hover{
-        background: rgb(58, 175, 130);
-    }
-    .form-header{
-        text-align: center;
-        margin-bottom : 2rem;
-    }
-
-    mark{
-        background-color: rgba(34, 185, 49, 0.685);
-    }
-
-    @media (max-width: 400px) {
-        .extraA-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 1.5rem;
-        background: #ffffff;
-        }
-    }
-
-</style>  
 
 </head>
 <body>
@@ -130,9 +12,9 @@
     <%- include("../partials/navbar") %>
     <div class="container">
         <div class="wrap">
-            <form class="extraA-form" action="/register/extraA" method="POST">
+            <form class="main-form" action="/register/extraA" method="POST">
                 <div style="padding-bottom: 0.7rem;" class="form-header">
-                    <h3 style="font-size: smaller;"><mark>account has been verified successfully</mark></h3>
+                    <h3 style="font-size: smaller;"><mark style="background-color: rgba(34, 185, 49, 0.685);">account has been verified successfully</mark></h3>
                     <h3 style="font-size: xx-large;">Personal Information</h3>
                     <p>Please Fill out these form to complete register</p>
                 </div>

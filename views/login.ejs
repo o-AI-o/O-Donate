@@ -2,56 +2,9 @@
 <html lang="en">
 <head>
     <title>Sign In | O-Donate</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
     <%- include("partials/header") %>
-    <style>
-    .wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .login-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 3rem;
-        background: #ffffff;
-    }
-    .form-input{
-        background: #fafafa;
-        border: 1px solid #eeeeee;
-        padding: 12px;
-        width: 100%;
-    }
-    .form-group{
-        margin-bottom: 1.5rem;
-    }
-    .form-button{
-        background:rgb(92, 173, 173);
-        border: 1px solid #ddd;
-        color: #ffffff;
-        padding: 10px;
-        width: 100%;
-        text-transform: uppercase;
-    }
-    .form-button:hover{
-        background: rgb(58, 175, 130);
-    }
-    .form-header{
-        text-align: center;
-        margin-bottom : 2rem;
-    }
-
-    @media (max-width: 400px) {
-        .login-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 1.5rem;
-        background: #ffffff;
-        }
-    }
-
-    </style> 
+    
 </head>
 <body>
     
@@ -60,7 +13,7 @@
             
             <div class="container">
                 <div class="wrap">
-                    <form class="login-form" action="/login" method="POST">
+                    <form class="main-form" action="/login" method="POST">
                         <%- include("partials/flash") %> 
                         <div style="padding-bottom: 0.7rem;" class="form-header">
                             <h3 style="font-size: xx-large;">Sign In</h3>
