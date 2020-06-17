@@ -14,12 +14,6 @@ router.post('/', function(req,res){
     const userReg = new db_user({
         username: req.body.username,
         email: req.body.email,
-        firstname: "-",
-        lastname: "-",
-        description: "-",
-        address: "-",
-        creditnum: "0000-0000-0000",
-        contact: "-",
         confirmed: false
     });
 
@@ -65,7 +59,10 @@ router.post('/extraB', function(req, res){
 
 router.post('/extraC', function(req, res){
     const userUpdate = {
-        description: req.body.inputContact
+        contactWeb: req.body.website,
+        contactFace: req.body.facebook,
+        contactTwit: req.body.twitter,
+        contactIG: req.body.instagram
     };
     
     db_user.updateOne({_id: verifyUser}, userUpdate, function(err, progress){

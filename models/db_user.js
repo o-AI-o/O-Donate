@@ -1,18 +1,6 @@
 const   mongoose      = require("mongoose"),
         passportLM    = require("passport-local-mongoose");
 
-// let userData = new mongoose.Schema({
-//     firstname   : String,
-//     lastname    : String,
-//     description : String,
-//     address     : String,
-//     creditnum   : String
-// });
-
-// let contactData = new mongoose.Schema({
-//     contact     : String
-// });
-
 let userSchema = new mongoose.Schema({
     username    : String,
     password    : String,
@@ -22,10 +10,11 @@ let userSchema = new mongoose.Schema({
     description : String,
     address     : String,
     creditnum   : String,
-    contact     : String,
-    confirmed   : Boolean,
-    // information : [userData],
-    // contact     : [contactData]    
+    contactWeb  : String,
+    contactFace : String,
+    contactTwit : String,
+    contactIG   : String,
+    confirmed   : Boolean
 });
 
 userSchema.plugin(passportLM);

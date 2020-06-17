@@ -1,4 +1,5 @@
 const   express         = require("express"),
+        path            = require('path');
         bodyParser      = require("body-parser"),
         mongoose        = require("mongoose"),
         flash           = require('connect-flash'),
@@ -52,8 +53,4 @@ app.use('/fundraiser', fundraiserRoutes);
 
 app.listen(1412,function(){
     console.log('Example app listening on port 1412!');
-});
-
-app.get("/add", function(req, res){
-    res.render("test/add");
 });
