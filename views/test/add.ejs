@@ -1,55 +1,49 @@
 <!DOCTYPE ejs>
 <html lang="en">
 <head>
-    <title>Sign In | O-Donate</title>
+    <title>Add Fundriaser | O-Donate</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
     <%- include("../partials/header") %>
     <style>
-    .wrap {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .add-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 3rem;
-        background: #ffffff;
-    }
-    .form-input{
-        background: #fafafa;
-        border: 1px solid #eeeeee;
-        padding: 12px;
-        width: 100%;
-    }
-    .form-group{
-        margin-bottom: 1.5rem;
-    }
-    .form-button{
-        background:rgb(92, 173, 173);
-        border: 1px solid #ddd;
-        color: #ffffff;
-        padding: 10px;
-        width: 100%;
-        text-transform: uppercase;
-    }
-    .form-button:hover{
-        background: rgb(58, 175, 130);
-    }
-    .form-header{
-        text-align: center;
-        margin-bottom : 2rem;
-    }
 
-    @media (max-width: 400px) {
-        .add-form{
-        width: 500px;
-        margin: 4.5rem 0.5rem;
-        border: 1.5px solid #ddd;
-        padding: 1.5rem;
-        background: #ffffff;
-        }
-    }
+  .img-fluid {
+    width: 100%;
+    height: 250px;
+  }
+
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;   
+    cursor: inherit;
+    display: block;
+  }
+
+  .btn-custom {
+    background: rgb(92, 173, 173);
+    color: #ffffff;
+    width: 100%;
+    margin-top: -45px;
+    padding: 1rem 0rem;
+    border-radius: 0%;
+  }
+
+  .btn-custom:hover {
+    background: rgb(58, 175, 130);
+    color: #ffffff;
+  }
 
     </style> 
 </head>
@@ -60,27 +54,38 @@
             
             <div class="container">
                 <div class="wrap">
-                    <form class="add-form" action="" method="POST">
+                    <form class="main-form" action="" method="POST">
                         
-                        <div style="padding-bottom: 0.7rem;" class="form-header">
+                        <div class="form-header">
                             <h3 style="font-size: xx-large;">Add Your Fundraiser</h3>
                         </div>
 
-                        <h1>Add photo</h1>
+                        <!-- <h1>Add photo</h1> -->
+                        <div class="col-md-12">
+                            <div class="profile-img">
+                                <img class="img-fluid rounded-top" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
+                                
+                                <span class="btn btn-custom btn-file">
+                                  Add Photo <input type="file">
+                                </span>
+                
+                            </div>
+                
+                        </div>
         
-                        <div class="form-group">
+                        <div class="form-group pt-4">
                             <label for="topic">Topic : </label>
                             <input type="text" class="form-control" placeholder="Fundriaser name" name="topic" required>
                         </div>
         
                         <div class="form-group">
-                            <label for="discription">Discription : </label>
-                            <input type="text" class="form-control" placeholder="explain about your topic" name="discription" required>
+                            <label for="discription">Why are you raising money ? : </label>
+                            <textarea type="text" class="form-control" placeholder="explain your story or reason" name="discription" required></textarea>
                         </div>
         
                         <div class="form-group">
                             <label for="target">Target : </label>
-                            <input type="number" class="form-control" placeholder="Amount of money" name="target" required>
+                            <input type="number" class="form-control" placeholder="Amount of money you want" name="target" required>
                         </div>
          
                         <div class="form-group">
