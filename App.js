@@ -7,8 +7,8 @@ const   express         = require("express"),
         passportL       = require("passport-local"),
         passportLM      = require("passport-local-mongoose");
 
-const   db_user         = require('./models/db_user');
-const   db_fundraiser   = require('./models/db_fundraiser');
+const   db_user         = require('./models/db_user'),
+        db_fundraiser   = require('./models/db_fundraiser');
 
 const   indexRoutes     = require('./routes/index'),
         profileRoutes   = require('./routes/profile'),

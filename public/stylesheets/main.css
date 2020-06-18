@@ -35,6 +35,14 @@
     margin-bottom : 2rem;
 }
 
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+  
+.dropdown>.dropdown-toggle:active {
+    pointer-events: all;
+}
+
 @media (max-width: 400px) {
         .main-form{
         width: 500px;

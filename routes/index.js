@@ -20,19 +20,18 @@ router.post('/login', function(req, res){
         if(!user) {
             req.flash('error', 'Username or Password incorrect.');
             res.redirect('/login');
-        } else if (!user.confirmed){
+        } else if (!user.confirmed) {
             req.flash('error', 'Your account is not verified. Please verify your Account.');
             res.redirect('/login');
+        } else {
+            passport.authenticate('local', {
+                failureFlash: "Username or Password incorrect.",
+                failureRedirect: "/login",
+                successFlash: "Welcome to O-Donate, "+ user.username,
+                successRedirect: "/"
+            })(req, res, function(){});
         }
-        passport.authenticate('local', {
-            failureFlash: "Username or Password incorrect.",
-            failureRedirect: "/login",
-            successFlash: "Welcome to O-Donate, "+ user.username,
-            successRedirect: "/"
-        })(req, res, function(){
-            
-        });
-    })
+    });
 });
 
 router.get('/logout', function(req, res){

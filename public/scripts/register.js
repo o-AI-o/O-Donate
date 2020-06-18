@@ -1,13 +1,11 @@
-const alertField = document.getElementById('alertField');
-
 function checkData() {
-    console.log("Check");
+    const alertField = document.getElementById('alertField');
+    alertField.innerHTML = "";
+
     var username        = $("#Username").val();
     var email           = $("#Email").val();
     var password        = $("#Password").val();
     var confirmPassword = $("#cfPassword").val();
-
-    alertField.innerHTML = "";
 
     if (!username)
         alertField.innerHTML = alertField.innerHTML + "<li>Require Username.</li>";
@@ -16,7 +14,7 @@ function checkData() {
     if (!password)
         alertField.innerHTML = alertField.innerHTML + "<li>Require Password.</li>";
     if (!confirmPassword)
-        alertField.innerHTML = alertField.innerHTML + "<li>Please confirm password.</li>";
+        alertField.innerHTML = alertField.innerHTML + "<li>Please confirm Password.</li>";
     if (password != confirmPassword)
         alertField.innerHTML = alertField.innerHTML + "<li>Password don't match.</li>";
 

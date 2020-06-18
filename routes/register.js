@@ -14,6 +14,15 @@ router.post('/', function(req,res){
     const userReg = new db_user({
         username: req.body.username,
         email: req.body.email,
+        firstname: "",
+        lastname: "",
+        description: "",
+        address: "",
+        creditnum: "",
+        contactWeb: "",
+        contactFace: "",
+        contactTwit: "",
+        contactIG: "",
         confirmed: false
     });
 
