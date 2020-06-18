@@ -5,61 +5,113 @@
     <%- include("../partials/header") %>
 
 <style>
-img {
+
+  .wrap {
+    margin-top: 4.5rem;
+  }
+
+  .img-fluid {
     width: 100%;
-    height: 25vw;
-    object-fit: cover;
-}
+    height: 400px;
+  }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  margin: auto;
-  text-align: center;
-}
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+  }
 
-.title {
-  color: grey;
-}
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;   
+    cursor: inherit;
+    display: block;
+  }
 
-/* button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-} */
+  .btn-custom {
+    background: rgb(92, 173, 173);
+    color: #ffffff;
+    width: 100%;
+    margin-top: -55px;
+    padding: 1rem 0rem;
+    border-radius: 0%;
+  }
 
-a {
-  text-decoration: none;
-  color: black;
-}
+  .btn-custom:hover {
+    background: rgb(58, 175, 130);
+    color: #ffffff;
+  }
+
+  .nav-tabs a{
+    color: rgb(92, 173, 173);
+    font-weight: 500;
+  }
+
+
 </style>
 
 </head>
 <body>
-   
 
-    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;"> 
     <%- include("../partials/navbar") %>
-        <div class="card">
-            <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
-            <h1><%= currentUser.username %></h1>
-            <p class="title">Name : <%= currentUser.firstname %> <%= currentUser.lastname %></p>
-            <p><%= currentUser.email %></p>
-            <div style="margin: 24px 0;">
-              
-              <a href="<%= currentUser.discription %>"><i class="fa fa-facebook fa-lg"><%= currentUser.discription %></i></a> 
-              <a href="#"><i class="fa fa-twitter fa-lg"></i></a>  
-              <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-            
-            </div>
-            <p><a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="profile/edit-username">Change Username</a></p>
+
+    <div class="container">
+      <div class="wrap">
+      <div class="row">
+
+        <div class="col-md-12 pb-3">
+          <h1>Your Profile</h1>
         </div>
+
+       
+        
+        <div class="col-md-4">
+            <div class="profile-img mb-4">
+                <img class="img-fluid rounded" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
+            </div>
+            
+            <div class="text-center pb-3">
+              <p><a style="border: solid; border-radius: 5px; padding: 15px 50px; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit-username">Change Profile</a></p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+    
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About You</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Your Fundraisers</a>
+            </li>
+           
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <!-- About you -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <h1><%= currentUser.username %></h1>
+              <p class="title">Name : <%= currentUser.firstname %> <%= currentUser.lastname %></p>
+              <p>E-mail : <%= currentUser.email %></p>
+              <p>Facebook : </p>
+              <p>Twitter : </p>
+              <p>Instagram : </p>
+              <p>Website : </p>
+            </div>
+            <!-- Your fundraisers -->
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+          
+        </div>
+
+     
+      </div>
+    </div>
     </div>
    
     
