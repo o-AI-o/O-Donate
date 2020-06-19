@@ -4,11 +4,9 @@
     <title>O-Donate: The bestest donate website in this tab.</title>
     <%- include("partials/header") %>
     <style>
-        /* body, html {
+        body, html {
           height: 100%;
           margin: 0;
-          font: 400 15px/1.8 "Lato", Kanit;
-          font-family: Kanit;
           color: #777;
         }
       
@@ -42,20 +40,26 @@
         }
         
         .caption {
+          display: flex;
           position: absolute;
           left: 0;
-          top: 50%;
+          top: 40%;
           width: 100%;
           text-align: center;
+          font-weight: 700;
           color: #000;
+          justify-content: center;
+          /* background-color: blueviolet; */
         }
-        
+
         .caption span.border {
           background-color: #111;
           color: #fff;
           padding: 18px;
           font-size: 25px;
           letter-spacing: 10px;
+          margin: 0px 15px;
+          
         }
         
         h3 {
@@ -63,27 +67,23 @@
           text-transform: uppercase;
           font: 20px "Lato", sans-serif;
           color: #111;
-        } */
-        
-        /* Turn off parallax scrolling for tablets and phones */
-        /* @media only screen and (max-device-width: 1024px) {
-          .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-            background-attachment: scroll;
-          }
-        } */
+        }
+
+        p {
+          text-align: center;
+        }
+     
       </style>
 </head>
 <body>
     <%- include("partials/navbar") %>
-
-    <div class="container mt-5">
-      <h1>New Home Page Soon</h1>
-    </div>
-
-    <!-- <div class="bgimg-1">
+  <div class="main">
+    <div class="bgimg-1">
+      
         <div class="caption">
-            <span style="margin:50px 80px;" class="border">scroll down for more information</span>
+            <span class="border">scroll down for more information</span>
         </div>
+     
     </div>
       
     <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
@@ -98,25 +98,25 @@
     </div>
 
     <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-        <h3 style="text-align: center;">CHILDREN</h3>
+        <h3 style="text-align: center;">Hospital</h3>
         <p>ABOUT CHILDREN</p>
     </div>
       
       
     <div class="bgimg-3">
         <div class="caption">
-            <span class="border" style="background-color:transparent; font-size:25px; color: #f7f7f7;">SCROLL UP</span>
+            <span class="border" style="background-color:transparent; font-size:25px; color: #f7f7f7;">DONATE FOR HOSPITAL</span>
         </div>
     </div>
 
     <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-        <h3 style="text-align: center;">CHILDREN</h3>
+        <h3 style="text-align: center;">ANIMAL</h3>
         <p>ABOUT CHILDREN</p>
     </div>
 
     <div class="bgimg-4">
         <div class="caption">
-            <span class="border" style="margin-top: auto; background-color:transparent; font-size:25px; color: #f7f7f7;">Animal</span>
+            <span class="border" style="margin-top: auto; background-color:transparent; font-size:25px; color: #f7f7f7;">DONATE FOR ANIMAL</span>
         </div>
     </div>
       
@@ -130,7 +130,9 @@
         <div class="caption">
             <span class="border" style="margin-top: auto; background-color:transparent;font-size:25px;color: #f7f7f7;">Animal</span>
         </div>
-    </div> -->
+    </div>
+  
+</div> 
     <%- include("partials/footer") %>
 </body>
 </html>

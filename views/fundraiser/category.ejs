@@ -5,9 +5,21 @@
     <%- include("../partials/header") %>
 
 <style>
+
+  .card {
+    border-style: none;
+  }
+
    .card-body {
      padding-bottom: 20px;
      text-align: center;
+   }
+
+   .card-body a {
+     background-color: rgb(92, 173, 173);
+     color: #ffffff;
+     padding: 10px 20px;
+     border-radius: 2px;
    }
    
    .row {
@@ -26,30 +38,38 @@
     
     <div class="container" style="margin: 25px auto; padding-top: 50px;">
         <div class="container">
+
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Donation Category</h1>
+              <p class="lead"> With over thousand Fusdraisers in our database </p>
+            </div>
+          </div>
+
             <div class="row">
-              <div class="col-xs-12 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://i.pinimg.com/564x/5b/ee/cc/5beecc173ddc97c2fc00757c1481fc12.jpg" class="card-img-top" alt="...">
+              <div class="col-xs-12 col-lg-4 mt-4">
+                <div class="card">
+                  <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/children">Children</a>
+                    <a href="/children">Children</a>
                   </div>
                 </div>
               </div>
               
-              <div class="col-xs-12 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://i.pinimg.com/564x/8b/b8/8d/8bb88da25def2f5532673c86c312e549.jpg" class="card-img-top" alt="...">
+              <div class="col-xs-12 col-lg-4 mt-4">
+                <div class="card">
+                  <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/hospital">Hospital</a>
+                    <a href="/hospital">Hospital</a>
                   </div>
                 </div>
               </div>
 
-              <div class="col-xs-12 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://i.pinimg.com/564x/bc/7f/98/bc7f98d957f0fa0a235482f56f181eaa.jpg" class="card-img-top" alt="...">
+              <div class="col-xs-12 col-lg-4 mt-4">
+                <div class="card">
+                  <img src="https://images.unsplash.com/photo-1469830961493-a4a308b082b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="/animals">Animals</a>
+                    <a href="/animals">Animals</a>
                   </div>
                 </div>
               </div>
