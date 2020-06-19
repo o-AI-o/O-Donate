@@ -1,10 +1,30 @@
 const   express         = require('express'),
+        multer          = require('multer'),
+        path            = require('path'),
         passport        = require('passport');
 
 const   db_user         = require('../models/db_user'),
         middleware      = require('../middleware');
 
 const   router          = express.Router();
+
+const   storage         = multer.diskStorage({
+    destination: './public/uploads/profiles',
+    filename: function(req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const   imageFilter     = function(req, file, cb){
+    var ext = path.extname(file.originalname);
+    if(ext == '.png' || ext !== '.jpg' || ext !== '.jpeg'){
+        cb(null, true);
+    } else {
+        return cb(new Error('ERROR'), false);
+    }
+}
+
+const   upload          = multer({storage: storage, fileFilter: imageFilter});
 
 router.get('/', function(req,res){
     res.render("register/index");
@@ -14,6 +34,7 @@ router.post('/', function(req,res){
     const userReg = new db_user({
         username: req.body.username,
         email: req.body.email,
+        profilePic: "",
         firstname: "",
         lastname: "",
         description: "",
@@ -41,8 +62,9 @@ router.get('/extra', function(req, res){
     res.render("register/extraA");
 });
 
-router.post('/extraA', function(req, res){
+router.post('/extraA', upload.single('Image'), function(req, res){
     const userUpdate = {
+        profilePic: req.file.filename,
         firstname: req.body.Firstname,
         lastname: req.body.Lastname,
         description: req.body.Description,

@@ -1,5 +1,4 @@
 const   express         = require("express"),
-        path            = require('path');
         bodyParser      = require("body-parser"),
         mongoose        = require("mongoose"),
         flash           = require('connect-flash'),
@@ -18,6 +17,9 @@ const   indexRoutes     = require('./routes/index'),
 
 const   app             = express();
 
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useUnifiedTopology', true);
 mongoose.connect('mongodb://localhost:27017/O-Donate', {useNewUrlParser: true});
 
 app.set("view engine","ejs");

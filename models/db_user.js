@@ -5,6 +5,7 @@ let userSchema = new mongoose.Schema({
     username    : String,
     password    : String,
     email       : String,
+    profilePic  : String,     
     firstname   : String,
     lastname    : String,
     description : String,

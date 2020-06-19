@@ -24,7 +24,6 @@ router.get("/add", function(req, res){
 });
 
 router.post("/add", function(req, res){
-    console.log(req.user);
     const fundraiReg = new db_fundraiser({
         fund_name: req.body.fname,
         fund_title: req.body.title,
