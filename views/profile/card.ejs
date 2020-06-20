@@ -49,7 +49,7 @@ a {
     <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;"> 
     <%- include("../partials/navbar") %>
         <div class="card">
-            <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
+            <img src=<%="/uploads/profiles/"+ currentUser.profilePic %> alt="John">
             <h1><%= currentUser.username %></h1>
             <p class="title">Name : <%= currentUser.firstname %> <%= currentUser.lastname %></p>
             <p><%= currentUser.email %></p>

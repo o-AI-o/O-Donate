@@ -78,7 +78,7 @@
             </div>
             
             <div class="text-center pb-3">
-              <p><a style="border: solid; border-radius: 5px; padding: 15px 50px; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit">Change Profile</a></p>
+              <p><a style="border: solid; border-radius: 5px; padding: 15px 50px; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit">Edit Your Profile</a></p>
             </div>
         </div>
 
@@ -110,8 +110,11 @@
               <p>Website : <%= currentUser.contactWeb %></p>
             </div>
             <!-- Your fundraisers -->
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-          
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <% (currentUser.fundraiOwner).forEach(function(fo){ %>
+                <p><%= fo %></p>
+              <% }); %>
+            </div>
         </div>
 
      

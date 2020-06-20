@@ -2,8 +2,10 @@ const   express         = require('express'),
         multer          = require('multer'),
         path            = require('path');
 
+const   db_user         = require('../models/db_user');
 const   db_fundraiser   = require('../models/db_fundraiser'),
         middleware      = require('../middleware');
+const { db } = require('../models/db_user');
 
 const   router          = express.Router();
 
@@ -47,16 +49,26 @@ router.post("/add", upload.single('Image'), function(req, res){
         fund_title: req.body.title,
         fund_description: req.body.description,
         fund_image: req.file.filename,
+        fund_createDate: new Date(),
         fund_moneytraget: req.body.target,
         fund_moneynow: 0,
         fundHistory: [],
         fundUpdate: [],
-        fund_author: req.user._id,
+        fund_author: req.user.id,
         adminConfirm: false
     });
 
-    fundraiReg.save(function(err, complete){
-        res.redirect("/fundraiser/")
+    fundraiReg.save(function(err, fundraiser){
+        if (err) res.redirect("/fundraiser/add");
+        else {
+            var fundraiArray = req.user.fundraiOwner;
+            fundraiArray.push({fundraiserID: fundraiser._id});
+            (req.user).save(function(err, success){
+                if (err) res.redirect("/fundraiser/add");
+                else res.redirect("/fundraiser");
+            });
+        }
+        
     });
 });
 

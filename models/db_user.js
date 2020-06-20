@@ -1,6 +1,10 @@
 const   mongoose      = require("mongoose"),
         passportLM    = require("passport-local-mongoose");
 
+let fundraiList = new mongoose.Schema({
+    fundraiserID: String
+})
+
 let userSchema = new mongoose.Schema({
     username    : String,
     password    : String,
@@ -15,6 +19,8 @@ let userSchema = new mongoose.Schema({
     contactFace : String,
     contactTwit : String,
     contactIG   : String,
+    joinDate    : Date,
+    fundraiOwner: [fundraiList], 
     confirmed   : Boolean
 });
 

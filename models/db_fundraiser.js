@@ -17,6 +17,7 @@ let fundraiserSchema = new mongoose.Schema({
     fund_title      : String,
     fund_description: String,
     fund_image      : String,
+    fund_createDate : Date,
     fund_moneytraget: Number,
     fund_moneynow   : Number,
     fundHistory     : [donateListData],
