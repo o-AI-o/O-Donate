@@ -1,0 +1,69 @@
+<!DOCTYPE ejs>
+<html lang="en">
+<head>
+    <title>Profile | O-Donate</title>
+    <%- include("../partials/header") %>
+
+<style>
+img {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+}
+
+/* button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+} */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+</style>
+
+</head>
+<body>
+   
+
+    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;"> 
+    <%- include("../partials/navbar") %>
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/7a/f8/bd/7af8bda53acab0675f8cbc9b13ac3835.jpg" alt="John">
+            <h1><%= currentUser.username %></h1>
+            <p class="title">Name : <%= currentUser.firstname %> <%= currentUser.lastname %></p>
+            <p><%= currentUser.email %></p>
+            <div style="margin: 24px 0;">
+              
+              <a href="<%= currentUser.discription %>"><i class="fa fa-facebook fa-lg"><%= currentUser.discription %></i></a> 
+              <a href="#"><i class="fa fa-twitter fa-lg"></i></a>  
+              <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+            
+            </div>
+            <p><a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="profile/edit-username">Change Username</a></p>
+        </div>
+    </div>
+   
+    
+</body>
+</html>
