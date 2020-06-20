@@ -61,7 +61,7 @@
     <%- include("../partials/navbar") %>
     <div class="container">
         <div class="wrap">
-            <form class="main-form" action="" method="POST">
+            <form class="main-form" action="/fundraiser/add" method="POST" enctype="multipart/form-data">
                 <div class="form-header">
                     <h3 style="font-size: xx-large;">Add Your Fundraiser</h3>
                 </div>
@@ -72,7 +72,7 @@
                             <img class="img-fluid rounded-top" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
                             
                             <span class="btn btn-custom btn-file">
-                              Add Photo <input type="file">
+                              Add Photo <input type="file" class="form-control" name="Image" accept="image/*" required>
                             </span>
             
                         </div>
