@@ -2,12 +2,14 @@ const   express         = require("express"),
         bodyParser      = require("body-parser"),
         mongoose        = require("mongoose"),
         flash           = require('connect-flash'),
+        seedDB          = require('./seeds'),
         passport        = require("passport"),
         passportL       = require("passport-local"),
         passportLM      = require("passport-local-mongoose");
 
 const   db_user         = require('./models/db_user'),
-        db_fundraiser   = require('./models/db_fundraiser');
+        db_fundraiser   = require('./models/db_fundraiser'),
+        db_category     = require('./models/db_category');
 
 const   indexRoutes     = require('./routes/index'),
         profileRoutes   = require('./routes/profile'),
@@ -16,6 +18,7 @@ const   indexRoutes     = require('./routes/index'),
         fundraiserRoutes= require('./routes/fundraiser');
 
 const   app             = express();
+let     testArray;
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
@@ -38,6 +41,10 @@ app.use(passport.session());
 app.use(function(req, res, next){
     res.locals.verifyUser = "-";
     res.locals.currentUser = req.user;
+    db_category.find({}, function(err, ccategory){
+        testArray = ccategory;
+    });
+    res.locals.category = testArray;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
     next();
@@ -46,6 +53,8 @@ app.use(function(req, res, next){
 passport.use(new passportL(db_user.authenticate()));
 passport.serializeUser(db_user.serializeUser());
 passport.deserializeUser(db_user.deserializeUser());
+
+// seedDB();
 
 app.use('/', indexRoutes);
 app.use('/profile', profileRoutes);

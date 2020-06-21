@@ -2,12 +2,15 @@ const   express         = require('express'),
         passport        = require('passport');
 
 const   db_user         = require('../models/db_user'),
+        db_category     = require('../models/db_category'),
         middleware      = require('../middleware');
 
 const   router          = express.Router();
 
 router.get('/', function(req, res){
-    res.render("index");
+    db_category.find({}, function(err, complete){
+        res.render("index", {category: complete});
+    });
 });
 
 router.get('/login', function(req, res){

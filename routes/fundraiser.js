@@ -47,6 +47,7 @@ router.post("/add", upload.single('Image'), function(req, res){
     const fundraiReg = new db_fundraiser({
         fund_name: req.body.fname,
         fund_title: req.body.title,
+        fund_catg: req.body.category,
         fund_description: req.body.description,
         fund_image: req.file.filename,
         fund_createDate: new Date(),
@@ -68,7 +69,6 @@ router.post("/add", upload.single('Image'), function(req, res){
                 else res.redirect("/fundraiser");
             });
         }
-        
     });
 });
 

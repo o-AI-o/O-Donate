@@ -1,5 +1,4 @@
-const   mongoose      = require("mongoose"),
-        passportLM    = require("passport-local-mongoose");
+const   mongoose      = require("mongoose");
 
 let donateListData = new mongoose.Schema({
     dont_name       : String,
@@ -15,6 +14,7 @@ let updateListData = new mongoose.Schema({
 let fundraiserSchema = new mongoose.Schema({
     fund_name       : String,
     fund_title      : String,
+    fund_catg       : String,
     fund_description: String,
     fund_image      : String,
     fund_createDate : Date,

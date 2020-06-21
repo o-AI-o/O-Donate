@@ -80,13 +80,22 @@
                 </div>
                 
                 <div class="form-group">
+                    <label for="category">Category : </label>
+                    <select name="category">
+                        <% category.forEach(function(ca){ %>
+                            <option value="<%= ca.catg_name %>"><%= ca.catg_name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="name">Name : </label>
                     <input type="text" class="form-control" placeholder="Fundriaser name" name="fname" required>
                 </div>
 
                 <div class="form-group">
                     <label for="topic">Topic : </label>
-                    <input type="text" class="form-control" placeholder="Fundriaser name" name="title" required>
+                    <input type="text" class="form-control" placeholder="Fundriaser Topic" name="title" required>
                 </div>
         
                 <div class="form-group">

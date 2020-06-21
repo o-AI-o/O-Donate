@@ -16,9 +16,9 @@
                     Category
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/fundraiser/children">Children</a>
-                    <a class="dropdown-item" href="/fundraiser/hospital">Hospital</a>
-                    <a class="dropdown-item" href="/fundraiser/animals">Animals</a>
+                    <% category.forEach(function(ca){ %>
+                        <a class="dropdown-item" href=<%= "/fundraiser/" + ca.catg_name %>><%= ca.catg_name %></a>
+                    <% }); %>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/fundraiser/category">See All</a>
                 </div>
