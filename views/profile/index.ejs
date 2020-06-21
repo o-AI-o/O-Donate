@@ -11,8 +11,8 @@
   }
 
   .img-fluid {
-    width: 350px;
-    height: 350px;
+    width: 340px;
+    height: 340px;
   }
 
   .btn-file {
@@ -83,41 +83,41 @@
         </div>
 
         <div class="col-md-6">
-    
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About You</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Your Fundraisers</a>
-            </li>
-           
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <!-- About you -->
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About You</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Contact</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <h1><%= currentUser.username %></h1>
               <h5>Name :</h5>
               <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
               <h5>Description :</h5>
               <p><%= currentUser.description %></p>
-              <p>&nbsp;</p>
-              <h5>Contact :</h5>
+            </div>
+
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <h5 class="mt-3">Contact :</h5>
               <p>E-mail : <%= currentUser.email %></p>
               <p>Facebook : <%= currentUser.contactFace %></p>
               <p>Twitter : <%= currentUser.contactTwit %></p>
               <p>Instagram : <%= currentUser.contactIG %></p>
               <p>Website : <%= currentUser.contactWeb %></p>
             </div>
-            <!-- Your fundraisers -->
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-          
-        </div>
 
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+          </div>
+        </div>
+    
+          
      
       </div>
     </div>
-    </div>
+  </div>     
    
     
 </body>

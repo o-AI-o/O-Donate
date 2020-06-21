@@ -7,14 +7,17 @@
       .wrap {
         margin-top: 4.5rem;
       }
+
       .img-fluid {
         width: 350px;
         height: 350px;
       }
+
       .btn-file {
         position: relative;
         overflow: hidden;
       }
+
       .btn-file input[type=file] {
         position: absolute;
         top: 0;
@@ -29,6 +32,7 @@
         cursor: inherit;
         display: block;
       }
+
       .btn-custom {
         background: rgb(92, 173, 173);
         color: #ffffff;
@@ -37,14 +41,17 @@
         padding: 1rem 0rem;
         border-radius: 0%;
       }
+
       .btn-custom:hover {
         background: rgb(58, 175, 130);
         color: #ffffff;
       }
+
       .input-group-prepend span {
           background: rgb(92, 173, 173);
           color: #ffffff;
       }
+
       .form-button{
             background:rgb(92, 173, 173);
             border: 1px solid #ddd;
@@ -53,9 +60,11 @@
             width: 50%;
             text-transform: uppercase;
         }
+
         .form-button:hover{
             background: rgb(58, 175, 130);
         }
+
         .form-header{
             text-align: center;
             margin-bottom : 2rem;
@@ -67,19 +76,21 @@
     <%- include("../partials/navbar") %>
 
     <div class="container">
+    <form lass="main-form" action="/profile/edit" method="POST"></form>
     <div class="wrap">
     <div class="row">
-      <div class="col-md-12 pb-3">
-        <h1>Edit Your Profile</h1>
-      </div>
-      <form lass="main-form" action="/profile/edit" method="POST">
-        <div class="container">
+        <div class="col-md-12 pb-3">
+          <h1>Edit Your Profile</h1>
+        </div>
+        
+        <div class="col-md-4">
           <div class="profile-img">
             <img class="img-fluid" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
             <span class="btn btn-custom btn-file">
               Edit Profile Picture <input type="file" class="form-control" name="Image" accept="image/*" required>
             </span>
           </div>
+        </div>
 
           <div class="col-md-5">
             <div class="form-group">
@@ -107,7 +118,7 @@
                 <button style="margin-top: 1.25rem; border-radius: 5px;" class="form-button" type="submit">Save Changed</button>
               </div>
             </div>
-          </div>
+          
         </div>
       </form>
     </div>
