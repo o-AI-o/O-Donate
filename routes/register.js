@@ -44,6 +44,8 @@ router.post('/', function(req,res){
         contactFace: "",
         contactTwit: "",
         contactIG: "",
+        joinDate: Date.now(),
+        fundraiOwner: [],
         confirmed: false
     });
 

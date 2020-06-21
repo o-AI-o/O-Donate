@@ -29,4 +29,8 @@ router.post('/edit', function (req,res){
     });
 });
 
+router.get('/card', function(req, res){
+    res.render("profile/card");
+});
+
 module.exports = router;
