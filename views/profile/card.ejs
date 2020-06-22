@@ -7,8 +7,8 @@
 <style>
 img {
     width: 100%;
-    height: 25vw;
-    object-fit: cover;
+    height: 400px;
+    /* object-fit: contain; */
 }
 
 .card {
@@ -46,7 +46,7 @@ a {
 <body>
    
 
-    <div class="container" style="width: 40%; margin: 25px auto; padding-top: 50px;"> 
+    <div class="container" style="padding-top: 70px;"> 
     <%- include("../partials/navbar") %>
         <div class="card">
             <img src=<%="/uploads/profiles/"+ currentUser.profilePic %> alt="John">
@@ -55,15 +55,16 @@ a {
             <p><%= currentUser.email %></p>
             <div style="margin: 24px 0;">
               
-              <a href="<%= currentUser.discription %>"><i class="fa fa-facebook fa-lg"><%= currentUser.discription %></i></a> 
+              <a href=<%= "currentUser.contactFace" %>><i class="fa fa-facebook fa-lg"></i></a> 
               <a href="#"><i class="fa fa-twitter fa-lg"></i></a>  
               <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+              <a href="#"><i class="fa fa-link fa-lg"></i></i></a>
             
             </div>
-            <p><a style="border: solid; padding: 5px 10px; color: rgb(92, 173, 173);" href="profile/edit-username">Change Username</a></p>
+           
         </div>
-    </div>
    
-    
+    </div>
+      
 </body>
 </html>

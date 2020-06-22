@@ -5,53 +5,60 @@
     <%- include("../partials/header") %>
 
 <style>
-    .wrap {
-        margin-top: 4.5rem;
-    }
 
-    .img-fluid {
-        width: 340px;
-        height: 340px;
-    }
+  .wrap {
+    margin-top: 4.5rem;
+  }
 
-    .btn-file {
-        position: relative;
-        overflow: hidden;
-    }
+  .img-fluid {
+    width: 340px;
+    height: 340px;
+  }
 
-    .btn-file input[type=file] {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        font-size: 100px;
-        text-align: right;
-        filter: alpha(opacity=0);
-        opacity: 0;
-        outline: none;   
-        cursor: inherit;
-        display: block;
-    }
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+  }
 
-    .btn-custom {
-        background: rgb(92, 173, 173);
-        color: #ffffff;
-        width: 100%;
-        margin-top: -55px;
-        padding: 1rem 0rem;
-        border-radius: 0%;
-    }
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;   
+    cursor: inherit;
+    display: block;
+  }
 
-    .btn-custom:hover {
-        background: rgb(58, 175, 130);
-        color: #ffffff;
-    }
+  .btn-custom {
+    background: rgb(92, 173, 173);
+    color: #ffffff;
+    width: 100%;
+    margin-top: -55px;
+    padding: 1rem 0rem;
+    border-radius: 0%;
+  }
 
-    .nav-tabs a{
-        color: rgb(92, 173, 173);
-        font-weight: 500;
-    }
+  .btn-custom:hover {
+    background: rgb(58, 175, 130);
+    color: #ffffff;
+  }
+
+  .nav-tabs a{
+    color: rgb(92, 173, 173);
+    font-weight: 500;
+  }
+
+  a {
+    color: black;
+  }
+
+
 </style>
 </head>
 <body>
@@ -69,50 +76,71 @@
             </div>
             
             <div class="text-center pb-3">
-              <p><a style="border: solid; border-radius: 5px; padding: 15px 50px; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit">Edit Your Profile</a></p>
+              <p><a style="border: solid; border-radius: 5px; padding: 15px 50px; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit">Change Profile</a></p>
             </div>
         </div>
 
         <div class="col-md-6">
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About You</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Contact</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My Frandraiser</a>
-                </div>
-            </nav>
 
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <h1><%= currentUser.username %></h1>
-                    <h5>Name :</h5>
-                    <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
-                    <h5>Description :</h5>
-                    <p><%= currentUser.description %></p>
-                </div>
-
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <h5 class="mt-3">Contact :</h5>
-                    <p>E-mail : <%= currentUser.email %></p>
-                    <p>Facebook : <%= currentUser.contactFace %></p>
-                    <p>Twitter : <%= currentUser.contactTwit %></p>
-                    <p>Instagram : <%= currentUser.contactIG %></p>
-                    <p>Website : <%= currentUser.contactWeb %></p>
-                </div>
-
-                <!-- Your fundraisers -->
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <h5 class="mt-3">Fundraiser :</h5>
-                    <% (currentUser.fundraiOwner).forEach(function(fo){ %>
-                        <p><%= fo.fundraiserID %></p>
-                    <% }); %>
-                </div>
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About You</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+              <a class="nav-item nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false">History</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <h1><%= currentUser.username %></h1>
+              <h5>Name :</h5>
+              <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
+              <h5>Description :</h5>
+              <p><%= currentUser.description %></p>
             </div>
 
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+              <h5 class="mt-3">Contact :</h5>
+              <p>E-mail : <%= currentUser.email %></p>
+              <p>Facebook : <%= currentUser.contactFace %></p>
+              <p>Twitter : <%= currentUser.contactTwit %></p>
+              <p>Instagram : <%= currentUser.contactIG %></p>
+              <p>Website : <%= currentUser.contactWeb %></p>
+            </div>
+
+            <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+              <table class="table table-striped">
+                <tbody>
+                  <tr>
+                    <th scope="row"><i class="fa fa-plus" aria-hidden="true"></i> Add</th>
+                    <td><a href="#">Fundraiser A</a></td>
+                    <td></td>
+                    <td>22/06/2020</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><i class="fa fa-money" aria-hidden="true"></i> Donate for</th>
+                    <td><a href="#">Fundraiser B</a></td>
+                    <td>2000 ฿</td>
+                    <td>22/06/2020</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><i class="fa fa-eye" aria-hidden="true"></i> View</th>
+                    <td><a href="#">Fundraiser A</a></td>
+                    <td></td>
+                    <td>22/06/2020</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
     </div>
     </div>
     </div>
 </body>
 </html>
+
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <% (currentUser.fundraiOwner).forEach(function(fo){ %>
+                <p><%= fo %></p>
+              <% }); %>
+            </div>
