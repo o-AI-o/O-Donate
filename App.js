@@ -18,7 +18,11 @@ const   indexRoutes     = require('./routes/index'),
         fundraiserRoutes= require('./routes/fundraiser');
 
 const   app             = express();
+
 let     testArray;
+db_category.find({}, function(err, ccategory){
+        testArray = ccategory;
+});
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
@@ -41,9 +45,6 @@ app.use(passport.session());
 app.use(function(req, res, next){
     res.locals.verifyUser = "-";
     res.locals.currentUser = req.user;
-    db_category.find({}, function(err, ccategory){
-        testArray = ccategory;
-    });
     res.locals.category = testArray;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');

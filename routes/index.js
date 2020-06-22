@@ -1,16 +1,12 @@
 const   express         = require('express'),
         passport        = require('passport');
 
-const   db_user         = require('../models/db_user'),
-        db_category     = require('../models/db_category'),
-        middleware      = require('../middleware');
+const   db_user         = require('../models/db_user');
 
 const   router          = express.Router();
 
 router.get('/', function(req, res){
-    db_category.find({}, function(err, complete){
-        res.render("index", {category: complete});
-    });
+    res.render("index");
 });
 
 router.get('/login', function(req, res){
@@ -41,10 +37,6 @@ router.get('/logout', function(req, res){
     req.logOut();
     req.flash('success', 'Log out successfully');
     res.redirect("/login");
-});
-
-router.get('/hidden', middleware.isLoggedIn, function (req,res){
-    res.render("hidden");
 });
 
 module.exports = router;

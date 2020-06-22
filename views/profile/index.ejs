@@ -5,73 +5,64 @@
     <%- include("../partials/header") %>
 
 <style>
+    .wrap {
+        margin-top: 4.5rem;
+    }
 
-  .wrap {
-    margin-top: 4.5rem;
-  }
+    .img-fluid {
+        width: 340px;
+        height: 340px;
+    }
 
-  .img-fluid {
-    width: 340px;
-    height: 340px;
-  }
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
 
-  .btn-file {
-    position: relative;
-    overflow: hidden;
-  }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;   
+        cursor: inherit;
+        display: block;
+    }
 
-  .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;   
-    cursor: inherit;
-    display: block;
-  }
+    .btn-custom {
+        background: rgb(92, 173, 173);
+        color: #ffffff;
+        width: 100%;
+        margin-top: -55px;
+        padding: 1rem 0rem;
+        border-radius: 0%;
+    }
 
-  .btn-custom {
-    background: rgb(92, 173, 173);
-    color: #ffffff;
-    width: 100%;
-    margin-top: -55px;
-    padding: 1rem 0rem;
-    border-radius: 0%;
-  }
+    .btn-custom:hover {
+        background: rgb(58, 175, 130);
+        color: #ffffff;
+    }
 
-  .btn-custom:hover {
-    background: rgb(58, 175, 130);
-    color: #ffffff;
-  }
-
-  .nav-tabs a{
-    color: rgb(92, 173, 173);
-    font-weight: 500;
-  }
-
-
+    .nav-tabs a{
+        color: rgb(92, 173, 173);
+        font-weight: 500;
+    }
 </style>
-
 </head>
 <body>
-
     <%- include("../partials/navbar") %>
-
     <div class="container">
-      <div class="wrap">
-      <div class="row">
-
+    <div class="wrap">
+    <div class="row">
         <div class="col-md-12 pb-3">
           <h1>Your Profile</h1>
         </div>
 
-       
-        
         <div class="col-md-4">
             <div class="profile-img mb-4">
                 <img class="img-fluid rounded" src=<%="/uploads/profiles/"+ currentUser.profilePic %>>
@@ -83,52 +74,45 @@
         </div>
 
         <div class="col-md-6">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About You</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Contact</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">My Frandraiser</a>
+                </div>
+            </nav>
 
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About You</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Contact</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <h1><%= currentUser.username %></h1>
-              <h5>Name :</h5>
-              <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
-              <h5>Description :</h5>
-              <p><%= currentUser.description %></p>
-            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <h1><%= currentUser.username %></h1>
+                    <h5>Name :</h5>
+                    <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
+                    <h5>Description :</h5>
+                    <p><%= currentUser.description %></p>
+                </div>
 
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              <h5 class="mt-3">Contact :</h5>
-              <p>E-mail : <%= currentUser.email %></p>
-              <p>Facebook : <%= currentUser.contactFace %></p>
-              <p>Twitter : <%= currentUser.contactTwit %></p>
-              <p>Instagram : <%= currentUser.contactIG %></p>
-              <p>Website : <%= currentUser.contactWeb %></p>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <h5 class="mt-3">Contact :</h5>
+                    <p>E-mail : <%= currentUser.email %></p>
+                    <p>Facebook : <%= currentUser.contactFace %></p>
+                    <p>Twitter : <%= currentUser.contactTwit %></p>
+                    <p>Instagram : <%= currentUser.contactIG %></p>
+                    <p>Website : <%= currentUser.contactWeb %></p>
+                </div>
+
+                <!-- Your fundraisers -->
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <h5 class="mt-3">Fundraiser :</h5>
+                    <% (currentUser.fundraiOwner).forEach(function(fo){ %>
+                        <p><%= fo.fundraiserID %></p>
+                    <% }); %>
+                </div>
             </div>
-<<<<<<< HEAD
-=======
-            <!-- Your fundraisers -->
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <% (currentUser.fundraiOwner).forEach(function(fo){ %>
-                <p><%= fo %></p>
-              <% }); %>
-            </div>
-        </div>
->>>>>>> 4f2cc0b5c55256e0039edae82c1bf0beaf2b3a46
 
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-          </div>
         </div>
-    
-          
-     
-      </div>
     </div>
-  </div>     
-   
-    
+    </div>
+    </div>
 </body>
 </html>

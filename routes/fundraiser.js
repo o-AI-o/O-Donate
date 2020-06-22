@@ -2,11 +2,9 @@ const   express         = require('express'),
         multer          = require('multer'),
         path            = require('path');
 
-const   db_user         = require('../models/db_user');
 const   db_fundraiser   = require('../models/db_fundraiser'),
         middleware      = require('../middleware');
-const { db } = require('../models/db_user');
-
+const { db } = require('../models/db_fundraiser');
 const   router          = express.Router();
 
 const   storage         = multer.diskStorage({
@@ -28,19 +26,28 @@ const   imageFilter     = function(req, file, cb){
 const   upload          = multer({storage: storage, fileFilter: imageFilter});
 
 router.get("/", function(req, res){
-    res.render("fundraiser/category");
+    res.render("fundraiser/categoryAll");
 });
 
-router.get("/:id/donate", function(req, res){
-
+router.get("/id/:id", function(req, res){
+    db_fundraiser.findOne({_id: req.params.id}, function(err, data){
+        console.log(data);
+        res.render("fundraiser/FundraiserDetail", {tFundraiser: data, fname: data.fund_name});
+    });
 });
 
 router.get("/category", function(req, res){
-    res.render("fundraiser/category");
+    res.render("fundraiser/categoryAll");
 });
 
-router.get("/add", function(req, res){
-    res.render("fundraiser/addFundraiser");
+router.get("/category/:type", function(req, res){
+    db_fundraiser.find({fund_catg: req.params.type}, function(err, data){
+        res.render("fundraiser/categoryOne", {cFundraiser: data, cname: req.params.type});
+    });
+});
+
+router.get("/addFundraiser", function(req, res){
+    res.render("fundraiser/fundraiserAdd");
 });
 
 router.post("/add", upload.single('Image'), function(req, res){

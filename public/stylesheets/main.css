@@ -43,6 +43,13 @@
     pointer-events: all;
 }
 
+.betterUL {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+}
+
 @media (max-width: 400px) {
         .main-form{
         width: 500px;
