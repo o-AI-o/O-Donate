@@ -54,7 +54,7 @@ passport.use(new passportL(db_user.authenticate()));
 passport.serializeUser(db_user.serializeUser());
 passport.deserializeUser(db_user.deserializeUser());
 
-// seedDB();
+seedDB();
 
 app.use('/', indexRoutes);
 app.use('/profile', profileRoutes);
