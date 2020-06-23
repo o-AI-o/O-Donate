@@ -1,10 +1,10 @@
 const mongoose      = require("mongoose");
 
 let fundhistorySchema = new mongoose.Schema({
-    funh_id         : Number,
-    funh_userid     : Number,
-    funh_fundid     : Number,
+    funh_userid     : String,
+    funh_fundid     : String,
     funh_value      : Number,
-    funh_date       : Date,
-    funh_time       : TimeRanges
+    funh_date       : Date
 });
+
+module.exports = mongoose.model('FunHistory', fundhistorySchema);

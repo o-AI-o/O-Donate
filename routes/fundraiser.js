@@ -3,6 +3,7 @@ const   express         = require('express'),
         path            = require('path');
 
 const   db_fundraiser   = require('../models/db_fundraiser'),
+        db_fundHistory  = require('../models/db_fundhistory'),
         middleware      = require('../middleware');
 
 const   router          = express.Router();
@@ -48,6 +49,26 @@ router.get("/id/:id", function(req, res){
 router.get("/id/:id/donate", middleware.isLoggedIn, function(req, res){
     db_fundraiser.findOne({_id: req.params.id}, function(err, data){
         res.render("fundraiser/fundraiserDonate", {tFundraiser: data, fname: data.fund_name});
+    });
+});
+
+router.post("/donate/:id", function(req, res){
+    db_fundraiser.findOne({_id: req.params.id}, function(err, donateFundraiser){
+        donateFundraiser.fund_moneynow = donateFundraiser.fund_moneynow + Number(req.body.donateBox);
+
+        const newFundHistory = new db_fundHistory({
+            funh_userid: req.user._id,
+            fund_fundid: donateFundraiser._id,
+            funh_value: req.body.donateBox,
+            funh_date: Date.now()
+        })
+
+        newFundHistory.save(function(err, nFundHistory){
+            (donateFundraiser.fundHistory).push({historyid: nFundHistory._id});
+            donateFundraiser.save(function(err, complete){});
+        });
+
+        res.redirect("/fundraiser/id/" + req.params.id);
     });
 });
 

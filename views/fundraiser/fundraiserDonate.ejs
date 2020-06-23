@@ -14,14 +14,14 @@
         <div class="row">
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Donation For <%= fname %></h4>
-                <form style="padding-top: 40px;" class="needs-validation">
+                <form style="padding-top: 40px;" class="needs-validation" onsubmit="return donateCheck()" action="/fundraiser/donate/<%= tFundraiser._id %>" method="POST">
                     <h1>Enter Your Amount</h1>
                     <div class="input-group input-group-lg mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">฿</span>
                         </div>
                         
-                        <input type="number" id="donateBox" style="text-align: right;" class="form-control">
+                        <input type="number" id="donateBox" name="donateBox" style="text-align: right;" class="form-control">
                         
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
@@ -90,7 +90,7 @@
                     </div> -->
 
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="button" onclick="donateCheck()">Continue</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="nextButton" type="submit">Continue</button>
                     <h6>By Clicking this. You agree to ......</h6>
                 </form>
             </div>
