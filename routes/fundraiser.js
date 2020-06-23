@@ -4,7 +4,7 @@ const   express         = require('express'),
 
 const   db_fundraiser   = require('../models/db_fundraiser'),
         middleware      = require('../middleware');
-const { db } = require('../models/db_fundraiser');
+
 const   router          = express.Router();
 
 const   storage         = multer.diskStorage({
@@ -29,13 +29,6 @@ router.get("/", function(req, res){
     res.render("fundraiser/categoryAll");
 });
 
-router.get("/id/:id", function(req, res){
-    db_fundraiser.findOne({_id: req.params.id}, function(err, data){
-        console.log(data);
-        res.render("fundraiser/FundraiserDetail", {tFundraiser: data, fname: data.fund_name});
-    });
-});
-
 router.get("/category", function(req, res){
     res.render("fundraiser/categoryAll");
 });
@@ -46,11 +39,23 @@ router.get("/category/:type", function(req, res){
     });
 });
 
-router.get("/addFundraiser", function(req, res){
+router.get("/id/:id", function(req, res){
+    db_fundraiser.findOne({_id: req.params.id}, function(err, data){
+        res.render("fundraiser/fundraiserDetail", {tFundraiser: data, fname: data.fund_name});
+    });
+});
+
+router.get("/id/:id/donate", middleware.isLoggedIn, function(req, res){
+    db_fundraiser.findOne({_id: req.params.id}, function(err, data){
+        res.render("fundraiser/fundraiserDonate", {tFundraiser: data, fname: data.fund_name});
+    });
+});
+
+router.get("/addFundraiser", middleware.isLoggedIn, function(req, res){
     res.render("fundraiser/fundraiserAdd");
 });
 
-router.post("/add", upload.single('Image'), function(req, res){
+router.post("/addFundraiser", upload.single('Image'), function(req, res){
     const fundraiReg = new db_fundraiser({
         fund_name: req.body.fname,
         fund_title: req.body.title,
@@ -71,7 +76,7 @@ router.post("/add", upload.single('Image'), function(req, res){
         else {
             var fundraiArray = req.user.fundraiOwner;
             fundraiArray.push({fundraiserID: fundraiser._id});
-            (req.user).save(function(err, success){
+            (req.user).save(function(err, complete){
                 if (err) res.redirect("/fundraiser/add");
                 else res.redirect("/fundraiser");
             });
