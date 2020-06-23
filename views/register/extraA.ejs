@@ -4,6 +4,7 @@
     <title>Sign Up | O-Donate</title>
     <link rel="stylesheet" href="/stylesheets/main.css">
     <script src="/scripts/register.js" type="text/javascript" defer></script>
+    <script src="/scripts/imagePreview.js" type="text/javascript" defer></script>
     <%- include("../partials/header") %>
 <style>
 .img-fluid {
@@ -61,59 +62,53 @@
     <%- include("../partials/navbar") %>
     <div class="container">
         <div class="wrap">
-            <form class="main-form" action="/register/extraA" method="POST" enctype="multipart/form-data">
+            <form class="main-form" onsubmit="return checkA()" action="/register/extraA" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <div class="form-header">
                     <h3 style="font-size: smaller;"><mark style="background-color: rgba(34, 185, 49, 0.685);">account has been verified successfully</mark></h3>
                     <h3 style="font-size: xx-large;">Personal Information</h3>
                     <p>Please Fill out these form to complete register</p>
                 </div>
   
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="profile-img">
-                                <img class="img-fluid rounded-top" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-img">
+                            <img class="img-fluid rounded-top" id="imgField" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
                                 
-                                <span class="btn btn-custom btn-file">
-                                  Add Photo <input type="file" class="form-control" name="Image" accept="image/*" required>
-                                </span>
+                            <span class="btn btn-custom btn-file">
+                                Add Photo <input type="file" class="form-control" id="imgPreview" name="Image" accept="image/*">
+                            </span>
                 
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mt-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="Firstname" placeholder="First Name" required>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mt-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="Lastname" placeholder="Last Name" required>
-                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <textarea type="text" class="form-control" name="Address" placeholder="Address" required></textarea>
+                    <div class="col-md-6 mt-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Firstname" name="Firstname" placeholder="First Name">
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <textarea type="text" class="form-control" rows="5" name="Description" placeholder="Some detail that make other know you" required></textarea>
+                    <div class="col-md-6 mt-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Lastname" name="Lastname" placeholder="Last Name">
+                        </div>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea type="text" class="form-control" id="Address" name="Address" placeholder="Address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <textarea type="text" class="form-control" rows="5" id="Description" name="Description" placeholder="Some detail that make other know you"></textarea>
+                </div>
                             
-                    <div class="form-group">
-                        <button class="form-button" type="submit">Submit</button>
-                    </div>
+                <div class="form-group">
+                    <button class="form-button" type="submit">Submit</button>
+                </div>
 
-                    
-                                    
+                <div id="alertField" style="color: red;"></div>
             </form>
         </div>
-   
     </div>
-  
-</body>
-</html>
-  
 </body>
 </html>

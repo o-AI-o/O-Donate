@@ -8,7 +8,6 @@
 
 </head>
 <body>
-    
     <%- include("../partials/navbar") %>
     <div class="container">
         <div class="wrap">
@@ -20,27 +19,29 @@
                 
                 <label for="facebook">Website: </label>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="website" placeholder="https://www.facebook.com/firstname.lastname" required>
+                    <input type="text" class="form-control" id="Website" name="website">
                 </div>
 
                 <label for="facebook">Facebook: </label>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="facebook" placeholder="https://www.facebook.com/firstname.lastname" required>
+                    <input type="text" class="form-control" id="Facebook" name="facebook">
                 </div>
 
                 <label for="twitter">Twitter: </label>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="twitter" placeholder="https://twitter.com/username" required>
+                    <input type="text" class="form-control" id="Twitter" name="twitter">
                 </div>
 
                 <label for="instagram">Instagram: </label>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="instagram" placeholder="https://www.instagram.com/username/" required>
+                    <input type="text" class="form-control" id="Instagram" name="instagram">
                 </div>
  
                 <div class="form-group">
                     <button style="margin-top: 1.25rem;" class="form-button" type="submit">Submit</button>
-                </div>              
+                </div>
+                
+                <div id="alertField" style="color: red;"></div>
             </form>
         </div>
    

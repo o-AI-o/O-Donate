@@ -4,11 +4,10 @@ const   express         = require("express"),
         flash           = require('connect-flash'),
         seedDB          = require('./seeds'),
         passport        = require("passport"),
-        passportL       = require("passport-local"),
+        passportL       = require("passport-local");
         passportLM      = require("passport-local-mongoose");
 
 const   db_user         = require('./models/db_user'),
-        db_fundraiser   = require('./models/db_fundraiser'),
         db_category     = require('./models/db_category');
 
 const   indexRoutes     = require('./routes/index'),
@@ -20,9 +19,7 @@ const   indexRoutes     = require('./routes/index'),
 const   app             = express();
 
 let     testArray;
-db_category.find({}, function(err, ccategory){
-        testArray = ccategory;
-});
+db_category.find({}, function(err, category){testArray = category;});
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
