@@ -6,4 +6,9 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect('/login');
 }
 
+middlewareObj.sortedByDate = function(a, b){
+    var dateA = new Date(a.fund_createDate), dateB = new Date(b.fund_createDate);
+    return dateB - dateA;
+}
+
 module.exports = middlewareObj;

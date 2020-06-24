@@ -4,6 +4,7 @@ const   express         = require('express'),
 
 const   db_fundraiser   = require('../models/db_fundraiser'),
         db_fundHistory  = require('../models/db_fundhistory'),
+        db_category     = require('../models/db_category'),
         middleware      = require('../middleware');
 const { route } = require('.');
 
@@ -37,7 +38,10 @@ router.get("/category", function(req, res){
 
 router.get("/category/:type", function(req, res){
     db_fundraiser.find({fund_catg: req.params.type}, function(err, data){
-        res.render("fundraiser/categoryOne", {cFundraiser: data, cname: req.params.type});
+        data.sort(middleware.sortedByDate);
+        db_category.findOne({catg_name: req.params.type}, function(err, cDetail){
+            res.render("fundraiser/categoryOne", {cFundraiser: data, cname: req.params.type, thisCategory: cDetail});
+        });
     });
 });
 
@@ -106,7 +110,7 @@ router.post("/addFundraiser", upload.single('Image'), function(req, res){
     });
 });
 
-router.get("/yf/", function(req, res){
+router.get("/yourFundraiser", function(req, res){
     db_fundraiser.find({fund_author: (req.user)._id}, function(err, aFundraiser){
         res.render("fundraiser/yourfundraiser", {cFundraiser: aFundraiser});
     });
