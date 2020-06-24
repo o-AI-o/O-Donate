@@ -21,7 +21,7 @@
                 <img class="img-fluid rounded" src="/uploads/profiles/<%= tUser.profilePic %>">
             </div>
             
-            <% if(currentUser._id.equals(tUser._id)) { %>
+            <% if(currentUser && currentUser._id.equals(tUser._id)) { %>
             <div class="text-left pb-3">
                 <form id="picForm" action="/profile/editPic/" method="POST" enctype="multipart/form-data">
                     <span class="btn btn-custom btn-file">
@@ -40,9 +40,9 @@
             <%- include("../partials/flash") %>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About <% if(currentUser._id.equals(tUser._id)) { %>You<% } else { %><%= tUser.username %><% } %></a>
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About <% if(currentUser && currentUser._id.equals(tUser._id)) { %>You<% } else { %><%= tUser.username %><% } %></a>
                     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-                    <% if(currentUser._id.equals(tUser._id)) { %>
+                    <% if(currentUser && currentUser._id.equals(tUser._id)) { %>
                     <a class="nav-item nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false">History</a>
                     <% } %>
                 </div>
@@ -67,7 +67,7 @@
                     <p>Website : <%= tUser.contactWeb %></p>
                 </div>
 
-                <% if(currentUser._id.equals(tUser._id)) { %>
+                <% if(currentUser && currentUser._id.equals(tUser._id)) { %>
                 <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
                     <table class="table table-striped">
                         <tbody>

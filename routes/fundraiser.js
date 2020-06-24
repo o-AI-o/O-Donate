@@ -56,6 +56,7 @@ router.get("/id/:id", function(req, res){
                 if (history) {
                     db_user.findById(history.funh_userid, function(err, user){
                         donateArray.push({
+                            id: user._id,
                             name: user.username,
                             pic: user.profilePic,
                             price: history.funh_value,

@@ -4,6 +4,7 @@
     <title><%= tFundraiser.fund_name %> | O-Donate</title>
     <%- include("../partials/header") %>
     <link rel="stylesheet" href="/stylesheets/detail.css">
+    <!-- <script src="/scripts/dateCalculator.js" type="text/javascript" defer></script> -->
 </head>
 <body>
     <%- include("../partials/navbar") %>
@@ -37,9 +38,9 @@
                             Author:
                             <form action="/profile/id/<%= tUser._id %>" method="GET">
                                 <!-- <div class="text-left col-md-12"> -->
-                                    <button class="text-left col-md-4" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px;">
-                                        <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 4px 0px">&nbsp&nbsp<%= tUser.username %>
-                                    </button>
+                                <button class="text-left col-md-4" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px;" type="submit">
+                                    <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 4px 0px">&nbsp&nbsp<%= tUser.username %>
+                                </button>
                                 <!-- </div> -->
                             </form>
                                                 
@@ -56,14 +57,12 @@
 
                     <div class="tab-pane fade" id="nav-donate" role="tabpanel" aria-labelledby="nav-donate-tab">
                         <% dArray.forEach(function (da){ %>
-
                         <div class="text-left col-md-12" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px; margin-top: 10px;">
                             <span><img class="rounded-circle" src="/uploads/profiles/<%= da.pic %>" style="width: 50px; height: 50px; margin: 4px 0px">
-                            &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b></span><span class="pull-right mr-4" style="margin-top: 11px;"><%= (da.date).getDate() %>/<%= (da.date).getMonth()+1 %>/<%= (da.date).getFullYear() %></span>
-                            
+                            &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b></span>
+                            <span class="pull-right mr-4" style="margin-top: 11px;"><%= (da.date).getDate() %>/<%= (da.date).getMonth()+1 %>/<%= (da.date).getFullYear() %></span>
                         </div>
                         <% }); %>
-                        
                     </div>
                 </div>
                 
