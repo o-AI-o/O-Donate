@@ -5,59 +5,6 @@
     <%- include("../partials/header") %>
     <link rel="stylesheet" href="/stylesheets/profile.css">
     <script src="/scripts/changeProfilePic.js" type="text/javascript" defer></script>
-<style>
-  .wrap {
-    margin-top: 4.5rem;
-  }
-
-  .img-fluid {
-    width: 340px;
-    height: 340px;
-  }
-
-  .btn-file {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;   
-    cursor: inherit;
-    display: block;
-  }
-
-  .btn-custom {
-    background: rgb(92, 173, 173);
-    color: #ffffff;
-    /* width: 97%; */
-    margin-top: -50px;
-    padding: 1rem 5.7rem;
-    border-radius: 0%;
-  }
-
-  .btn-custom:hover {
-    background: rgb(58, 175, 130);
-    color: #ffffff;
-  }
-
-  .nav-tabs a{
-    color: rgb(92, 173, 173);
-    font-weight: 500;
-  }
-
-  a {
-    color: black;
-  }
-</style>
 </head>
 <body>
     <%- include("../partials/navbar") %>
@@ -83,7 +30,7 @@
             </div>
 
             <div class="text-left pb-3">
-                <p><a style="border: solid; border-radius: 5px; padding: 1rem 8.25rem; background-color: rgb(92, 173, 173); color: #ffffff;" href="/profile/edit">Edit Profile</a></p>
+                <p><a style="border: solid; border-radius: 5px; padding: 1rem 8.25rem; background-color: rgb(92, 173, 173); color: #ffffff;" href="/profile/id/<%= tUser._id %>/edit">Edit Profile</a></p>
             </div>
             <% } %>
         </div>

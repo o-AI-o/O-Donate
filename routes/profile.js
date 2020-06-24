@@ -39,8 +39,9 @@ router.get('/id/:id', function(req, res){
     });
 });
 
-router.get('/edit', middleware.isLoggedIn, function (req,res){
-    res.render("profile/edit");
+router.get('/id/:id/edit', middleware.isLoggedIn, function (req,res){
+    if((req.user)._id == req.params.id) res.render("profile/edit");
+    else res.redirect("back");
 });
 
 router.post('/edit', function (req,res){

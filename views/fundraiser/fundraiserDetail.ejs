@@ -21,7 +21,6 @@
             margin: 4px 0px
         } */
     </style>
-
 </head>
 <body>
     <%- include("../partials/navbar") %>
@@ -43,16 +42,13 @@
                     <h5 class="card-title"><%= tFundraiser.fund_title %></h5>
                     <span class="border-bottom"><hr width="100%"></span>
                         Author:
-                        <form action="/profile/id/<%= tUser._id %>" method="GET">
+                        <form action=<%= "/profile/id/" + tUser._id %> method="GET">
                             <!-- <div class="text-left col-md-12"> -->
                             <button class="text-left col-md-4" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px;" href="#">
                                 <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 4px 0px">&nbsp&nbsp<%= tUser.username %>
                             </button>
                             <!-- </div> -->
                         </form>
-
-                            
-                        
                         
                     <span class="border-bottom"><hr width="100%"></span>
                     <p class="card-text"><%= tFundraiser.fund_description %></p>
