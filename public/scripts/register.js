@@ -67,3 +67,30 @@ function checkB() {
     if (alertField.innerHTML == "") return true;
     else return false;
 }
+
+function checkFundraiser() {
+    alertField.innerHTML = "";
+
+    var image           = $("#imgPreview").val();
+    var category        = $("#Category").val();
+    var name            = $("#FName").val();
+    var topic           = $("#FTopic").val();
+    var description     = $("#FDesc").val();
+    var target          = $("#FTarget").val();
+
+    if (!image)
+        alertField.innerHTML = alertField.innerHTML + "<li>Require Image.</li>";
+    if (category == 0)
+        alertField.innerHTML = alertField.innerHTML + "<li>Require Fundraiser Category.</li>";
+    if (!name)
+        alertField.innerHTML = alertField.innerHTML + "<li>Require Fundraiser Name.</li>";
+    if (!topic)
+        alertField.innerHTML = alertField.innerHTML + "<li>Require Fundraiser Topic.</li>";
+    if (!description)
+        alertField.innerHTML = alertField.innerHTML + "<li>Require Fundraiser Description.</li>";
+    if (!target)
+        alertField.innerHTML = alertField.innerHTML + "<li>Require Fundraiser Donate Amount.</li>";
+
+    if (alertField.innerHTML == "") return true;
+    else return false;
+}

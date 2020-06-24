@@ -4,6 +4,8 @@
     <title>Add Your Fundraiser | O-Donate</title>
     <link rel="stylesheet" href="/stylesheets/main.css">
     <%- include("../partials/header") %>
+    <script src="/scripts/imagePreview.js" type="text/javascript" defer></script>
+    <script src="/scripts/register.js" type="text/javascript" defer></script>
 <style>
 .img-fluid {
     width: 100%;
@@ -59,7 +61,7 @@
     <%- include("../partials/navbar") %>
     <div class="container">
         <div class="wrap">
-            <form class="main-form" action="/fundraiser/addFundraiser" method="POST" enctype="multipart/form-data">
+            <form class="main-form" onsubmit="return checkFundraiser()" action="/fundraiser/addFundraiser" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <div class="form-header">
                     <h3 style="font-size: xx-large;">Add Your Fundraiser</h3>
                 </div>
@@ -67,10 +69,10 @@
                 <div class="row">
                     <div class="col-md-12 pb-4">
                         <div class="profile-img">
-                            <img class="img-fluid rounded-top" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
+                            <img class="img-fluid rounded-top" id="imgField" src="https://i.pinimg.com/564x/90/dd/0a/90dd0a24c501b281fb1aedde1776ff0c.jpg" alt=""/>
                             
                             <span class="btn btn-custom btn-file">
-                              Add Photo <input type="file" class="form-control" name="Image" accept="image/*" required>
+                                Add Photo <input type="file" class="form-control" id="imgPreview" name="Image" accept="image/*">
                             </span>
             
                         </div>
@@ -80,8 +82,8 @@
                 <div class="form-group">
                     <label for="category"><span class="hidden-xs">Category :</span> </label>
                     <div class="form-inline">
-                        <select name="category" class="form-control" style="width:45%">
-                            <option>Select</option>
+                        <select id="Category" name="category" class="form-control" style="width:45%">
+                            <option value="0">Select</option>
                             <% category.forEach(function(ca){ %>
                             <option value="<%= ca.catg_name %>"><%= ca.catg_name %></option>
                             <% }); %>
@@ -92,27 +94,29 @@
 
                 <div class="form-group">
                     <label for="name">Name : </label>
-                    <input type="text" class="form-control" placeholder="Fundriaser name" name="fname" required>
+                    <input type="text" id="FName" class="form-control" placeholder="Fundriaser name" name="fname">
                 </div>
 
                 <div class="form-group">
                     <label for="topic">Topic : </label>
-                    <input type="text" class="form-control" placeholder="Fundriaser Topic" name="title" required>
+                    <input type="text" id="FTopic" class="form-control" placeholder="Fundriaser Topic" name="title">
                 </div>
         
                 <div class="form-group">
                     <label for="discription">Description : </label>
-                    <textarea type="text" class="form-control" placeholder="explain about your topic" name="description" row="5" required></textarea>
+                    <textarea type="text" id="FDesc" class="form-control" placeholder="explain about your topic" name="description" rows="5"></textarea>
                 </div>
         
                 <div class="form-group">
                     <label for="target">Target : </label>
-                    <input type="number" class="form-control" placeholder="Amount of money" name="target" required>
+                    <input type="number" id="FTarget" class="form-control" placeholder="Amount of money" name="target">
                 </div>
          
                 <div class="form-group">
                     <button style="margin-top: 1.25rem;" class="form-button" type="submit">Add Fundraiser</button>
-                </div>                       
+                </div>
+                
+                <div id="alertField" style="color: red;"></div>
             </form>
         </div>
     </div>
