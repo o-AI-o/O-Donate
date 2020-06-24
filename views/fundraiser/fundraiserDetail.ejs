@@ -4,7 +4,7 @@
     <title><%= tFundraiser.fund_name %> | O-Donate</title>
     <%- include("../partials/header") %>
     <link rel="stylesheet" href="/stylesheets/detail.css">
-    <!-- <script src="/scripts/dateCalculator.js" type="text/javascript" defer></script> -->
+    <script src="/scripts/changeProfilePic.js" type="text/javascript" defer></script>
 </head>
 <body>
     <%- include("../partials/navbar") %>
@@ -14,36 +14,31 @@
                 <h1 class="bd-title"><%= tFundraiser.fund_name %></h1>
                 <p>&nbsp;</p>
             </div>
-            
-            <% if(currentUser && currentUser._id.equals(tFundraiser.fund_author)) { %>
-            <div class="text-left pb-3">
-                <form id="picForm" action="/profile/editPic/" method="POST" enctype="multipart/form-data">
-                    <span class="btn btn-custom btn-file">
-                        Change Profile Picture <input type="file" class="form-control" id="imgSubmit" name="Image" accept="image/*">
-                    </span>
-                </form>
-            </div>
 
             <div class="col-xs-12 col-lg-5">
                 <img class="card-img-top" src="/uploads/fundraisers/<%= tFundraiser.fund_image %>" alt="Card image cap">
                 <div class="card-body" style="text-align: center;">
                     <% if(currentUser && currentUser._id.equals(tFundraiser.fund_author)) { %>
-                    <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Change Picture</a>
-                    <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Edit Fundraiser</a>
+                    <form id="picForm" action="/fundraiser/id/<%= tFundraiser._id %>/editPic" method="POST" enctype="multipart/form-data">
+                        <span class="btn btn-custom btn-file">
+                            Change Picture <input type="file" class="form-control" id="imgSubmit" name="Image" accept="image/*">
+                        </span>
+                    </form>
+                    <a href="/fundraiser/id/<%= tFundraiser._id %>/edit">Edit Fundraiser</a>
                     <% } else { %>
                     <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Donate</a>
                     <% } %>
                 </div>
             </div>
-
             <div class="col-xs-12 col-lg-7">
+                <%- include("../partials/flash") %>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-detail-tab" data-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="true">Detail</a>
                         <a class="nav-item nav-link" id="nav-donate-tab" data-toggle="tab" href="#nav-donate" role="tab" aria-controls="nav-donate" aria-selected="false">Lastest Donate History</a>
                     </div>
                 </nav>
-
+                
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
                         <div class="card-body">
@@ -68,7 +63,6 @@
                             <h6>$<%= tFundraiser.fund_moneynow %> raised of $<%= tFundraiser.fund_moneytraget %></h6> 
                         </div>
                     </div>
-
                     <div class="tab-pane fade" id="nav-donate" role="tabpanel" aria-labelledby="nav-donate-tab">
                         <% if(dArray.length != 0) { %>
                             <% dArray.forEach(function (da){ %>

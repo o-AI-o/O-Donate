@@ -16,4 +16,9 @@ middlewareObj.sortedByDateFH = function(a, b){
     return dateB - dateA;
 }
 
+middlewareObj.sortedByDateDa = function(a, b){
+    var dateA = new Date(a.date), dateB = new Date(b.date);
+    return dateB - dateA;
+}
+
 module.exports = middlewareObj;
