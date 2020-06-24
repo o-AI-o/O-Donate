@@ -2,35 +2,26 @@
 <html lang="en">
 <head>
     <title><%= cname %> | O-Donate</title>
+    <link rel="stylesheet" href="/stylesheets/category.css">
     <%- include("../partials/header") %>
-    <style>
-        .img-thumbnail {
-            padding-bottom: 20px;
-            text-align: left;
-        }
-   
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    
 
-        .card-body a {
-            background-color: rgb(92, 173, 173);
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 2px;
-        }
-
-    </style>
 </head>
 <body>
     <%- include("../partials/navbar") %>
     <!-- <div class="container" style="margin: 25px auto; padding-top: 50px;"> -->
-    <div class="container" style="padding-top: 50px;">
+    <div class="container" style="margin: 25px auto; padding-top: 50px;">
+        <!-- <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">CHILDREN</h1>
+                <p class="lead">Each day, more than 30,000 children die of poverty-related causes. Today, poverty kills one child every 3 seconds.<br> 
+                    Children are the primary victims of poverty, and poverty is the principal cause of violations pertaining to Children’s Rights.</p>
+            </div>
+        </div> -->
     <div class="row">
     <% cFundraiser.forEach(function(cf){ %>
         <div class="col-xs-12 col-lg-4">
-            <div class="img-thumbnail mt-4">
+            <div class="img-thumbnail mt-3">
                 <img class="card-img-top" src=<%= "/uploads/fundraisers/" + cf.fund_image %> alt="Card image cap">
                 <h2 style="padding-top: 15px;" class="card-title"><%= cf.fund_name %></h2>
                 <p class="card-text"><%= cf.fund_title %></p>

@@ -1,0 +1,102 @@
+  body, html {
+    height: 100%;
+    margin: 0;
+    color: #777;
+  }
+
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, .bgimg-8 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .bgimg-1 {
+    background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    min-height: 100%;
+  }
+  
+  .bgimg-2 {
+    background-image: url("https://images.unsplash.com/photo-1547496614-54ff387d650a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    min-height: 400px;
+  }
+
+  .bgimg-3 {
+    background-image: url("https://images.unsplash.com/photo-1588623358844-fd118c056dfc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    min-height: 400px;
+  }
+
+  .bgimg-4 {
+    background-image: url("https://images.unsplash.com/photo-1549560826-4b7bfe23f37b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    min-height: 400px;
+  }
+
+  .bgimg-5 {
+    background-image: url("https://images.unsplash.com/photo-1559132286-2f23224a1d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    min-height: 400px;
+  }
+
+  .bgimg-6 {
+    background-image: url("https://images.unsplash.com/photo-1453535397344-2db6bf80862a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    min-height: 400px;
+  }
+
+  .bgimg-7 {
+    background-image: url("https://images.unsplash.com/photo-1514387354739-2bb6a30bf791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1074&q=80");
+    min-height: 400px;
+  }
+
+  .bgimg-8 {
+    background-image: url("https://images.unsplash.com/photo-1552055568-e9943cd2a08f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80");
+    min-height: 400px;
+  }
+     
+  .caption {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: #000;
+    justify-content: center;
+    
+  }
+
+  .caption a.border {
+    /* background-color: #111;
+    color: #fff; */
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    margin: 0px 15px;
+    margin-top: auto;
+    background-color:transparent;
+    font-size:25px;color: black;
+    
+  }
+
+  
+  h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .card {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 15px;
+  }

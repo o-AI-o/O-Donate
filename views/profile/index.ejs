@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <title>Profile | O-Donate</title>
+    
     <%- include("../partials/header") %>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
     <script src="/scripts/changeProfilePic.js" type="text/javascript" defer></script>
 <style>
 
@@ -38,9 +40,9 @@
   .btn-custom {
     background: rgb(92, 173, 173);
     color: #ffffff;
-    width: 100%;
-    margin-top: -55px;
-    padding: 1rem 0rem;
+    /* width: 97%; */
+    margin-top: -50px;
+    padding: 1rem 5.7rem;
     border-radius: 0%;
   }
 
@@ -48,6 +50,7 @@
     background: rgb(58, 175, 130);
     color: #ffffff;
   }
+
 
   .nav-tabs a{
     color: rgb(92, 173, 173);
@@ -75,7 +78,7 @@
                 <img class="img-fluid rounded" src=<%="/uploads/profiles/"+ currentUser.profilePic %>>
             </div>
             
-            <div class="text-center pb-3">
+            <div class="text-left pb-3">
                 <form id="picForm" action="/profile/editPic/" method="POST" enctype="multipart/form-data">
                     <span class="btn btn-custom btn-file">
                         Change Profile Picture <input type="file" class="form-control" id="imgSubmit" name="Image" accept="image/*">
@@ -83,8 +86,8 @@
                 </form>
             </div>
 
-            <div class="text-center pb-3">
-                <p><a style="border: solid; border-radius: 5px; padding: 15px 50px; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit">Edit Profile</a></p>
+            <div class="text-left pb-3">
+                <p><a style="border: solid; border-radius: 5px; padding: 1rem 8.25rem; background-color: rgb(92, 173, 173); color: #ffffff;" href="profile/edit">Edit Profile</a></p>
             </div>
         </div>
 
