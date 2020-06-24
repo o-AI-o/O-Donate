@@ -24,7 +24,18 @@
             <div class="col-xs-12 col-lg-7">
                 <div class="card-body">
                     <h5 class="card-title"><%= tFundraiser.fund_title %></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <span class="border-bottom"><hr width="100%"></span>
+                        Author:
+                        <form action="#" method="GET">
+                            <button class="text-left col-xs-6 col-lg-4" style="border-radius: 5px; background-color: lightgrey; border: 0px;" href="#">
+                                <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 5px"><%= tUser.username %>
+                            </button>
+                        </form>
+
+                            
+                        
+                        
+                    <span class="border-bottom"><hr width="100%"></span>
                     <p class="card-text"><%= tFundraiser.fund_description %></p>
                     <div class="progress">
                         <div class="progress-bar bg-success" style="width:<%= (tFundraiser.fund_moneynow / tFundraiser.fund_moneytraget) * 100 %>%"></div>

@@ -2,11 +2,13 @@ const   express         = require('express'),
         multer          = require('multer'),
         path            = require('path');
 
-const   db_fundraiser   = require('../models/db_fundraiser'),
+const   db_user         = require('../models/db_user'),
+        db_fundraiser   = require('../models/db_fundraiser'),
         db_fundHistory  = require('../models/db_fundhistory'),
         db_category     = require('../models/db_category'),
         middleware      = require('../middleware');
 const { route } = require('.');
+const { db } = require('../models/db_category');
 
 const   router          = express.Router();
 
@@ -46,8 +48,10 @@ router.get("/category/:type", function(req, res){
 });
 
 router.get("/id/:id", function(req, res){
-    db_fundraiser.findOne({_id: req.params.id}, function(err, data){
-        res.render("fundraiser/fundraiserDetail", {tFundraiser: data, fname: data.fund_name});
+    db_fundraiser.findOne({_id: req.params.id}, function(err, fundraiser){
+        db_user.findOne({_id: fundraiser.fund_author}, function(err, user){
+            res.render("fundraiser/fundraiserDetail", {tFundraiser: fundraiser, fname: fundraiser.fund_name, tUser: user});
+        });
     });
 });
 
