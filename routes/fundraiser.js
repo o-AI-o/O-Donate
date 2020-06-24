@@ -7,8 +7,6 @@ const   db_user         = require('../models/db_user'),
         db_fundHistory  = require('../models/db_fundhistory'),
         db_category     = require('../models/db_category'),
         middleware      = require('../middleware');
-const { route } = require('.');
-const { db } = require('../models/db_category');
 
 const   router          = express.Router();
 
@@ -40,7 +38,7 @@ router.get("/category", function(req, res){
 
 router.get("/category/:type", function(req, res){
     db_fundraiser.find({fund_catg: req.params.type}, function(err, data){
-        data.sort(middleware.sortedByDate);
+        data.sort(middleware.sortedByDateFu);
         db_category.findOne({catg_name: req.params.type}, function(err, cDetail){
             res.render("fundraiser/categoryOne", {cFundraiser: data, cname: req.params.type, thisCategory: cDetail});
         });
@@ -49,9 +47,32 @@ router.get("/category/:type", function(req, res){
 
 router.get("/id/:id", function(req, res){
     db_fundraiser.findOne({_id: req.params.id}, function(err, fundraiser){
-        db_user.findOne({_id: fundraiser.fund_author}, function(err, user){
-            res.render("fundraiser/fundraiserDetail", {tFundraiser: fundraiser, fname: fundraiser.fund_name, tUser: user});
+        let donateArray = [];
+        let i = 0;
+
+        (fundraiser.fundHistory).some(function(hID){
+            i++;
+            db_fundHistory.findById(hID.historyID, function(err, history){
+                if (history) {
+                    db_user.findById(history.funh_userid, function(err, user){
+                        donateArray.push({
+                            name: user.username,
+                            pic: user.profilePic,
+                            price: history.funh_value,
+                            date: history.funh_date
+                        });
+                    });
+                }
+            });
+            return (i == 5);
         });
+        donateArray.sort(middleware.sortedByDateFH);
+        
+        setTimeout(function(){
+            db_user.findOne({_id: fundraiser.fund_author}, function(err, user){
+                res.render("fundraiser/fundraiserDetail", {tFundraiser: fundraiser, tUser: user, dArray: donateArray});
+            });
+        },100);
     });
 });
 
@@ -73,11 +94,13 @@ router.post("/donate/:id", function(req, res){
         })
 
         newFundHistory.save(function(err, nFundHistory){
-            (donateFundraiser.fundHistory).push({historyid: nFundHistory._id});
+            (donateFundraiser.fundHistory).push({historyID: nFundHistory._id});
             donateFundraiser.save(function(err, complete){});
         });
 
-        res.redirect("/fundraiser/id/" + req.params.id);
+        setTimeout(function(){
+           res.redirect("/fundraiser/id/" + req.params.id);
+        },100);
     });
 });
 

@@ -19,3 +19,8 @@
     border-radius: 2px;
     width: 100%;
 }
+
+.nav-tabs a{
+    color: rgb(92, 173, 173);
+    font-weight: 500;
+  }

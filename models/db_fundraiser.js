@@ -1,9 +1,7 @@
 const   mongoose      = require("mongoose");
 
 let donateListData = new mongoose.Schema({
-    dont_name       : String,
-    dont_total      : Number,
-    dont_date       : Date
+    historyID       : String
 });
 
 let updateListData = new mongoose.Schema({

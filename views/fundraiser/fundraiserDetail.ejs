@@ -1,7 +1,7 @@
 <!DOCTYPE ejs>
 <html lang="en">
 <head>
-    <title><%= fname %> | O-Donate</title>
+    <title><%= tFundraiser.fund_name %> | O-Donate</title>
     <%- include("../partials/header") %>
     <link rel="stylesheet" href="/stylesheets/detail.css">
 </head>
@@ -11,6 +11,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="bd-title"><%= tFundraiser.fund_name %></h1>
+                <p>&nbsp;</p>
             </div>
 
             <div class="col-xs-12 col-lg-5">
@@ -21,25 +22,50 @@
             </div>
 
             <div class="col-xs-12 col-lg-7">
-                <div class="card-body">
-                    <h5 class="card-title"><%= tFundraiser.fund_title %></h5>
-                    <span class="border-bottom"><hr width="100%"></span>
-                        Author:
-                        <form action=<%= "/profile/id/" + tUser._id %> method="GET">
-                            <!-- <div class="text-left col-md-12"> -->
-                            <button class="text-left col-md-4" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px;" href="#">
-                                <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 4px 0px">&nbsp&nbsp<%= tUser.username %>
-                            </button>
-                            <!-- </div> -->
-                        </form>
-                        
-                    <span class="border-bottom"><hr width="100%"></span>
-                    <p class="card-text"><%= tFundraiser.fund_description %></p>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" style="width:<%= (tFundraiser.fund_moneynow / tFundraiser.fund_moneytraget) * 100 %>%"></div>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-detail-tab" data-toggle="tab" href="#nav-detail" role="tab" aria-controls="nav-detail" aria-selected="true">Detail</a>
+                        <a class="nav-item nav-link" id="nav-donate-tab" data-toggle="tab" href="#nav-donate" role="tab" aria-controls="nav-donate" aria-selected="false">Lastest Donate History</a>
                     </div>
-                    <h6>$<%= tFundraiser.fund_moneynow %> raised of $<%= tFundraiser.fund_moneytraget %></h6> 
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= tFundraiser.fund_title %></h5>
+                            <span class="border-bottom"><hr width="100%"></span>
+                            Author:
+                            <form action="/profile/id/<%= tUser._id %>" method="GET">
+                                <!-- <div class="text-left col-md-12"> -->
+                                    <button class="text-left col-md-4" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px;">
+                                        <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 4px 0px">&nbsp&nbsp<%= tUser.username %>
+                                    </button>
+                                <!-- </div> -->
+                            </form>
+                                                
+                            <span class="border-bottom"><hr width="100%"></span>
+                            <p class="card-text"><%= tFundraiser.fund_description %></p>
+                                
+                            <span class="border-bottom"><hr width="100%"></span>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width:<%= (tFundraiser.fund_moneynow / tFundraiser.fund_moneytraget) * 100 %>%"></div>
+                            </div>
+                            <h6>$<%= tFundraiser.fund_moneynow %> raised of $<%= tFundraiser.fund_moneytraget %></h6> 
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-donate" role="tabpanel" aria-labelledby="nav-donate-tab">
+                        <% dArray.forEach(function (da){ %>
+                        <div class="text-left col-md-12" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px; margin-top: 10px;">
+                            <img class="rounded-circle" src="/uploads/profiles/<%= da.pic %>" style="width: 50px; height: 50px; margin: 4px 0px">
+                            &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b>
+
+                        </div>
+                        <% }); %>
+                        
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
