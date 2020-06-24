@@ -11,10 +11,11 @@
 <body>
     <%- include("../partials/navbar") %>
     <div class="container" style="margin: 25px auto; padding-top: 50px;">
-        <div class="row">
+        
+        <div class="row justify-content-center">
             <div class="col-md-8 order-md-1">
-                <h4 class="mb-3">Donation For <%= fname %></h4>
-                <form style="padding-top: 40px;" class="needs-validation" onsubmit="return donateCheck()" action="/fundraiser/donate/<%= tFundraiser._id %>" method="POST">
+                <h4 style="text-transform: uppercase;" class="mb-3">Donation For <%= fname %></h4>
+                <form style="padding-top: 30px;" class="needs-validation" onsubmit="return donateCheck()" action="/fundraiser/donate/<%= tFundraiser._id %>" method="POST">
                     <h1>Enter Your Amount</h1>
                     <div class="input-group input-group-lg mb-3">
                         <div class="input-group-prepend">

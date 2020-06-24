@@ -3,130 +3,237 @@
 <head>
     <title>O-Donate: The bestest donate website in this tab.</title>
     <%- include("partials/header") %>
-    <style>
-        body, html {
-          height: 100%;
-          margin: 0;
-          color: #777;
-        }
-      
-        .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
-          position: relative;
-          opacity: 0.65;
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        
-        }
-        .bgimg-1 {
-          background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-          min-height: 100%;
-        }
-        
-        .bgimg-2 {
-          background-image: url("https://images.unsplash.com/photo-1547496614-54ff387d650a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-          min-height: 400px;
-        }
-        
-        .bgimg-3 {
-          background-image: url("https://images.unsplash.com/photo-1549560826-4b7bfe23f37b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-          min-height: 400px;
-        }
-      
-        .bgimg-4 {
-          background-image: url("https://images.unsplash.com/photo-1545906785-193d7758ba91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-          min-height: 400px;
-        }
-        
-        .caption {
-          display: flex;
-          position: absolute;
-          left: 0;
-          top: 40%;
-          width: 100%;
-          text-align: center;
-          font-weight: 700;
-          color: #000;
-          justify-content: center;
-          /* background-color: blueviolet; */
-        }
+    <link rel="stylesheet" href="stylesheets/home.css">
 
-        .caption span.border {
-          background-color: #111;
-          color: #fff;
-          padding: 18px;
-          font-size: 25px;
-          letter-spacing: 10px;
-          margin: 0px 15px;
-          
-        }
-        
-        h3 {
-          letter-spacing: 5px;
-          text-transform: uppercase;
-          font: 20px "Lato", sans-serif;
-          color: #111;
-        }
-
-        p {
-          text-align: center;
-        }
-    </style>
 </head>
 <body>
     <%- include("partials/navbar") %>
     <div class="main">
         <div class="bgimg-1">
             <div class="caption">
-                <span class="border">scroll down for more information</span>
+                <a class="border">scroll down for more information</a>
             </div>   
         </div>
       
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
             <h3 style="text-align: center;">CHILDREN</h3>
-            <p>ABOUT CHILDREN</p>
+            <p>Each day, more than 30,000 children die of poverty-related causes. Today, poverty kills one child every 3 seconds.<br> 
+              Children are the primary victims of poverty, and poverty is the principal cause of violations pertaining to Children’s Rights.</p>
         </div>
-      
+
         <div class="bgimg-2">
-            <div class="caption">
-                <span herf="/register" class="border" style="background-color:transparent; font-size:25px; color: #f7f7f7;">Click here to DONATE FOR CHILDREN</span>
-            </div>
+          <div class="caption">
+            <a class="border" href="/fundraiser/category/Children">CLICK HERE TO DONATE FOR CHILDREN</a>
+          </div>
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-            <h3 style="text-align: center;">Hospital</h3>
-            <p>ABOUT CHILDREN</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Fun Name</h5>
+                    <p class="card-text text-left">Fun topic</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
 
         <div class="bgimg-3">
-            <div class="caption">
-                <span class="border" style="background-color:transparent; font-size:25px; color: #f7f7f7;">DONATE FOR HOSPITAL</span>
-            </div>
+            
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-            <h3 style="text-align: center;">ANIMAL</h3>
-            <p>ABOUT CHILDREN</p>
+            <h3 style="text-align: center;">hospital</h3>
+            <p>ABOUT hospital</p>
         </div>
 
         <div class="bgimg-4">
-            <div class="caption">
-                <span class="border" style="margin-top: auto; background-color:transparent; font-size:25px; color: #f7f7f7;">DONATE FOR ANIMAL</span>
+          <div class="caption">
+            <a class="border" href="/fundraiser/category/Hospital">CLICK HERE TO DONATE FOR HOSPITAL</a>
+          </div>
+        </div>
+
+        <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              
             </div>
+          </div>
         </div>
       
-        <div style="position:relative;">
-            <div style="color:#ddd; background-color:#282E34; text-align:center; padding:50px 80px; text-align: justify;">
-                <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
-            </div>
+        
+
+        <div class="bgimg-5">
+
         </div>
 
-        <div class="bgimg-4">
-            <div class="caption">
-                <span class="border" style="margin-top: auto; background-color:transparent;font-size:25px;color: #f7f7f7;">Animal</span>
-            </div>
+        <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
+          <h3 style="text-align: center;">animals</h3>
+          <p>about animals</p>
         </div>
+
+        <div class="bgimg-6">
+          <div class="caption">
+            <a class="border" href="/fundraiser/category/Animal">CLICK HERE TO DONATE FOR ANIMALS</a>
+          </div>
+        </div>
+
+        <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="bgimg-7">
+
+        </div>
+
+        <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
+          <h3 style="text-align: center;">nature</h3>
+          <p>about natual</p>
+        </div>
+
+        <div class="bgimg-8">
+          <div class="caption">
+            <a class="border" href="/fundraiser/category/Nature">CLICK HERE TO DONATE FOR NATURE</a>
+          </div>
+        </div>
+
+        <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                  <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
     </div> 
     <%- include("partials/footer") %>
 </body>
