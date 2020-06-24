@@ -14,11 +14,21 @@
                 <h1 class="bd-title"><%= tFundraiser.fund_name %></h1>
                 <p>&nbsp;</p>
             </div>
+            
+            <% if(currentUser && currentUser._id.equals(tFundraiser.fund_author)) { %>
+            <div class="text-left pb-3">
+                <form id="picForm" action="/profile/editPic/" method="POST" enctype="multipart/form-data">
+                    <span class="btn btn-custom btn-file">
+                        Change Profile Picture <input type="file" class="form-control" id="imgSubmit" name="Image" accept="image/*">
+                    </span>
+                </form>
+            </div>
 
             <div class="col-xs-12 col-lg-5">
                 <img class="card-img-top" src="/uploads/fundraisers/<%= tFundraiser.fund_image %>" alt="Card image cap">
                 <div class="card-body" style="text-align: center;">
                     <% if(currentUser && currentUser._id.equals(tFundraiser.fund_author)) { %>
+                    <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Change Picture</a>
                     <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Edit Fundraiser</a>
                     <% } else { %>
                     <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Donate</a>
