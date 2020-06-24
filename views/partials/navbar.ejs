@@ -36,7 +36,7 @@
             <li class="nav-item">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        fundraiser
+                        Fundraiser
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/fundraiser/addFundraiser">Add Your Fundrasier</a>
@@ -45,7 +45,7 @@
                 </li>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/profile">Welcome! <%= currentUser.username %></a>
+                <a class="nav-link" href="/profile/id/<%= currentUser._id %>">Welcome! <%= currentUser.username %></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>

@@ -7,6 +7,7 @@ const   express         = require('express'),
 const   db_user         = require('../models/db_user'),
         middleware      = require('../middleware');
 const   db_fundraiser   = require('../models/db_fundraiser');
+const { db } = require('../models/db_user');
 
 const   router          = express.Router();
 
@@ -28,8 +29,14 @@ const   imageFilter     = function(req, file, cb){
 
 const   upload          = multer({storage: storage, fileFilter: imageFilter});
 
-router.get('/', middleware.isLoggedIn, function (req,res){
-    res.render("profile/index");
+router.get('/', function(req, res){
+    res.redirect('/profile/id/'+(req.user)._id);
+})
+
+router.get('/id/:id', function(req, res){
+    db_user.findById(req.params.id, function(err, user){
+        res.render("profile/index", {tUser: user});
+    });
 });
 
 router.get('/edit', middleware.isLoggedIn, function (req,res){
@@ -65,10 +72,6 @@ router.post('/editPic', upload.single('Image'), function(req, res){
         else req.flash("success", "Change Profile Picture Complete");
         res.redirect('/profile');
     });
-});
-
-router.get('/card', function(req, res){
-    res.render("profile/card");
 });
 
 module.exports = router;
