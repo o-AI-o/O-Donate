@@ -58,7 +58,7 @@
                         <% dArray.forEach(function (da){ %>
                         <div class="text-left col-md-12" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px; margin-top: 10px;">
                             <img class="rounded-circle" src="/uploads/profiles/<%= da.pic %>" style="width: 50px; height: 50px; margin: 4px 0px">
-                            &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b>
+                            &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b> <%= (da.date).getDate() %>/<%= (da.date).getMonth()+1 %>/<%= (da.date).getFullYear() %>
 
                         </div>
                         <% }); %>
