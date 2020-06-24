@@ -18,7 +18,11 @@
             <div class="col-xs-12 col-lg-5">
                 <img class="card-img-top" src="/uploads/fundraisers/<%= tFundraiser.fund_image %>" alt="Card image cap">
                 <div class="card-body" style="text-align: center;">
+                    <% if(currentUser && currentUser._id.equals(tFundraiser.fund_author)) { %>
+                    <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Edit Fundraiser</a>
+                    <% } else { %>
                     <a href="/fundraiser/id/<%= tFundraiser._id %>/donate">Donate</a>
+                    <% } %>
                 </div>
             </div>
 
@@ -33,7 +37,7 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-detail" role="tabpanel" aria-labelledby="nav-detail-tab">
                         <div class="card-body">
-                            <h5 class="card-title"><%= tFundraiser.fund_title %></h5>
+                            <h5 class="card-title">Category: <%= tFundraiser.fund_catg %></h5>
                             <span class="border-bottom"><hr width="100%"></span>
                             Author:
                             <form action="/profile/id/<%= tUser._id %>" method="GET">
@@ -56,16 +60,21 @@
                     </div>
 
                     <div class="tab-pane fade" id="nav-donate" role="tabpanel" aria-labelledby="nav-donate-tab">
-                        <% dArray.forEach(function (da){ %>
-                        <div class="text-left col-md-12" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px; margin-top: 10px;">
-                            <span><img class="rounded-circle" src="/uploads/profiles/<%= da.pic %>" style="width: 50px; height: 50px; margin: 4px 0px">
-                            &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b></span>
-                            <span class="pull-right mr-4" style="margin-top: 11px;"><%= (da.date).getDate() %>/<%= (da.date).getMonth()+1 %>/<%= (da.date).getFullYear() %></span>
-                        </div>
-                        <% }); %>
+                        <% if(dArray.length != 0) { %>
+                            <% dArray.forEach(function (da){ %>
+                            <div class="text-left col-md-12" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px; margin-top: 10px;">
+                                <span><img class="rounded-circle" src="/uploads/profiles/<%= da.pic %>" style="width: 50px; height: 50px; margin: 4px 0px">
+                                &nbsp&nbsp<%= da.name %> donate <b><%= da.price %>$</b></span>
+                                <span class="pull-right mr-4" style="margin-top: 11px;"><%= (da.date).getDate() %>/<%= (da.date).getMonth()+1 %>/<%= (da.date).getFullYear() %></span>
+                            </div>
+                            <% }); %>
+                        <% } else { %>
+                            <div class="text-left col-md-12" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px; margin-top: 10px;">
+                                <span class="mr-4" style="margin-top: 11px; text-align: center;">Looks like nobody has donated this fund yet.</span>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

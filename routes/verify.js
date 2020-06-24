@@ -8,7 +8,10 @@ const   router          = express.Router();
 
 router.get('/id/:user_id', function(req,res){
     db_user.findById(req.params.user_id, function(err, user){
-        if(!user) return res.redirect('/login');
+        if(!user || user.confirmed) {
+            req.flash("error", "Error Link");
+            return res.redirect('/login');
+        }
         verifyUser = user._id;
         db_user.updateOne({_id: verifyUser}, {confirmed: true}, function(err, user2){
             if(err) return res.redirect('/login');
