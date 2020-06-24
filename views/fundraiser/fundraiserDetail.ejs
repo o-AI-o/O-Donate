@@ -4,6 +4,23 @@
     <title><%= fname %> | O-Donate</title>
     <link rel="stylesheet" href="/stylesheets/detail.css">
     <%- include("../partials/header") %>
+    <style>
+        /* .rounded-circle img {
+            position: absolute;
+            left: 4;
+            width: 50px; 
+            height: 50px; 
+            margin: 4px 0px
+        }
+
+        .rounded-circle {
+            position: absolute;
+            left: 4;
+            width: 50px; 
+            height: 50px; 
+            margin: 4px 0px
+        } */
+    </style>
 
 </head>
 <body>
@@ -27,9 +44,11 @@
                     <span class="border-bottom"><hr width="100%"></span>
                         Author:
                         <form action="#" method="GET">
-                            <button class="text-left col-xs-6 col-lg-4" style="border-radius: 5px; background-color: lightgrey; border: 0px;" href="#">
-                                <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 5px"><%= tUser.username %>
+                            <!-- <div class="text-left col-md-12"> -->
+                            <button class="text-left col-md-4" style="border-radius: 5px; background-color: lightgrey; border: 0px; padding: 0px 3px;" href="#">
+                                <img class="rounded-circle" src="/uploads/profiles/<%= tUser.profilePic %>" style="width: 50px; height: 50px; margin: 4px 0px">&nbsp&nbsp<%= tUser.username %>
                             </button>
+                            <!-- </div> -->
                         </form>
 
                             
