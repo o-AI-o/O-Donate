@@ -5,6 +5,7 @@ const   express         = require('express'),
 const   db_fundraiser   = require('../models/db_fundraiser'),
         db_fundHistory  = require('../models/db_fundhistory'),
         middleware      = require('../middleware');
+const { route } = require('.');
 
 const   router          = express.Router();
 
@@ -102,6 +103,12 @@ router.post("/addFundraiser", upload.single('Image'), function(req, res){
                 else res.redirect("/fundraiser");
             });
         }
+    });
+});
+
+router.get("/yf/", function(req, res){
+    db_fundraiser.find({fund_author: (req.user)._id}, function(err, aFundraiser){
+        res.render("fundraiser/yourfundraiser", {cFundraiser: aFundraiser});
     });
 });
 
