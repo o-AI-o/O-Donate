@@ -29,7 +29,7 @@ const   imageFilter     = function(req, file, cb){
 
 const   upload          = multer({storage: storage, fileFilter: imageFilter});
 
-router.get('/', function(req, res){
+router.get('/', middleware.isLoggedIn, function(req, res){
     res.redirect('/profile/id/'+(req.user)._id);
 })
 
@@ -57,7 +57,7 @@ router.post('/edit', function (req,res){
     (req.user).save(function(err, complete){
         if(err) req.flash("error", "Edit Profile Uncomplete");
         else req.flash("success", "Edit Profile Complete");
-        res.redirect('/profile');
+        res.redirect('/profile')
     });
 });
 

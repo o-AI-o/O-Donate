@@ -13,6 +13,7 @@
     <div class="row">
         <div class="col-md-12 pb-3">
             <h1><%= tUser.username %>'s Profile</h1>
+            <p>&nbsp;</p>
         </div>
 
         <div class="col-md-4">
@@ -39,7 +40,7 @@
             <%- include("../partials/flash") %>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About You</a>
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">About <% if(currentUser._id.equals(tUser._id)) { %>You<% } else { %><%= tUser.username %><% } %></a>
                     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
                     <% if(currentUser._id.equals(tUser._id)) { %>
                     <a class="nav-item nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false">History</a>
@@ -49,8 +50,7 @@
             
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <h1><%= tUser.username %></h1>
-                    <h5>Name :</h5>
+                    <h5 class="mt-3">Name :</h5>
                     <p><%= tUser.firstname %> <%= tUser.lastname %></p>
                     <h5>Address :</h5>
                     <p><%= tUser.address %></p>
