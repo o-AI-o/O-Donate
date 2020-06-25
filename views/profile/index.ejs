@@ -74,7 +74,6 @@
                         <% let i = 0 %>
                         <% (currentUser.logHistory).some(function (hi){ %>
                             <% i = i + 1 %>
-                            <% console.log(i) %>
                             <% if (hi.type == "Account Create") { %>
                             <tr>
                                 <th scope="row"><i class="fa fa-user" aria-hidden="true"></i> Create</th>
@@ -141,19 +140,6 @@
                             <% } %>
                             <% return (i == 10) %>
                         <% }); %>
-                        
-                        <!-- <tr>
-                            <th scope="row"><i class="fa fa-money" aria-hidden="true"></i> Donate for</th>
-                            <td><a href="#">Fundraiser B</a></td>
-                            <td>2000 ฿</td>
-                            <td>22/06/2020</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><i class="fa fa-eye" aria-hidden="true"></i> View</th>
-                            <td><a href="#">Fundraiser A</a></td>
-                            <td></td>
-                            <td>22/06/2020</td>
-                        </tr> -->
                         </tbody>
                     </table>
                 </div>    
