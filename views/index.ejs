@@ -33,15 +33,16 @@
                     <% let i = 0 %>
                     <% aChildren.some(function (fu){ %>
                         <% i = i + 1 %>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= fu.fund_name %></h5>
-                                    <p class="card-text text-left"><%= fu.fund_title %></p>
-                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
-                                </div>
+                        <div class="col-md-4 mt-4">
+                            
+                            <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title"><%= fu.fund_name %></h5>
+                                <p class="card-text text-left pb-5"><%= fu.fund_title %></p>
+                                <a style="padding-top: 10px; background-color: rgb(92, 173, 173); color: #ffffff;" href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
                             </div>
+                            
                         </div>
                         <% return (i == 3) %>
                     <% }); %>
@@ -70,21 +71,23 @@
                     <% i = 0 %>
                     <% aHospital.some(function (fu){ %>
                         <% i = i + 1 %>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= fu.fund_name %></h5>
-                                    <p class="card-text text-left"><%= fu.fund_title %></p>
-                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
-                                </div>
+                        <div class="col-md-4 mt-4">
+                            <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title"><%= fu.fund_name %></h5>
+                                <p class="card-text text-left pb-5"><%= fu.fund_title %></p>
+                                <a style="padding-top: 10px; background-color: rgb(92, 173, 173); color: #ffffff;" href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
                             </div>
+                            
                         </div>
                         <% return (i == 3) %>
                     <% }); %>
                 </div>
             </div>
         </div>
+
+
 
         <div class="bgimg-5">
 
@@ -107,15 +110,16 @@
                     <% i = 0 %>
                     <% aAnimal.some(function (fu){ %>
                         <% i = i + 1 %>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= fu.fund_name %></h5>
-                                    <p class="card-text text-left"><%= fu.fund_title %></p>
-                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
-                                </div>
+                        
+                        <div class="col-md-4 mt-4">
+                            <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title"><%= fu.fund_name %></h5>
+                                <p class="card-text text-left pb-5"><%= fu.fund_title %></p>
+                                <a style="padding-top: 10px; background-color: rgb(92, 173, 173); color: #ffffff;" href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
                             </div>
+                            
                         </div>
                         <% return (i == 3) %>
                     <% }); %>
@@ -144,15 +148,16 @@
                     <% i = 0 %>
                     <% aNature.some(function (fu){ %>
                         <% i = i + 1 %>
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= fu.fund_name %></h5>
-                                    <p class="card-text text-left"><%= fu.fund_title %></p>
-                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
-                                </div>
+                        
+                        <div class="col-md-4 mt-4">
+                            <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title"><%= fu.fund_name %></h5>
+                                <p class="card-text text-left pb-5"><%= fu.fund_title %></p>
+                                <a style="padding-top: 10px; background-color: rgb(92, 173, 173); color: #ffffff;" href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
                             </div>
+                            
                         </div>
                         <% return (i == 3) %>
                     <% }); %>
