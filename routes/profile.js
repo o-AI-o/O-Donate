@@ -5,9 +5,8 @@ const   express         = require('express'),
         passport        = require('passport');
 
 const   db_user         = require('../models/db_user'),
+        db_fundraiser   = require('../models/db_fundraiser'),
         middleware      = require('../middleware');
-const   db_fundraiser   = require('../models/db_fundraiser');
-const { db } = require('../models/db_user');
 
 const   router          = express.Router();
 
@@ -54,6 +53,15 @@ router.post('/edit', function (req,res){
     if (req.body.instagram != "") (req.user).contactIG = req.body.instagram;
     if (req.body.website != "") (req.user).contactWeb = req.body.website;
 
+    ((req.user).logHistory).push({
+        date: Date.now(),
+        type: "Account Edit",
+        target: "",
+        link: "",
+        amount: 0
+    });
+    ((req.user).logHistory).sort(middleware.sortedByDateDa);
+
     (req.user).save(function(err, complete){
         if(err) req.flash("error", "Edit Profile Uncomplete");
         else req.flash("success", "Edit Profile Complete");
@@ -68,6 +76,16 @@ router.post('/editPic', upload.single('Image'), function(req, res){
     });
 
     (req.user).profilePic = req.file.filename;
+
+    ((req.user).logHistory).push({
+        date: Date.now(),
+        type: "Account Picture Edit",
+        target: "",
+        link: "",
+        amount: 0
+    });
+    ((req.user).logHistory).sort(middleware.sortedByDateDa);
+
     (req.user).save(function(err, complete){
         if(err) req.flash("error", "Change Profile Picture Uncomplete");
         else req.flash("success", "Change Profile Picture Complete");

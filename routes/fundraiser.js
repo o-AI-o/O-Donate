@@ -8,7 +8,6 @@ const   db_user         = require('../models/db_user'),
         db_fundHistory  = require('../models/db_fundhistory'),
         db_category     = require('../models/db_category'),
         middleware      = require('../middleware');
-const { db } = require('../models/db_category');
 
 const   router          = express.Router();
 
@@ -72,6 +71,7 @@ router.get("/id/:id", function(req, res){
         
         setTimeout(function(){
             donateArray.sort(middleware.sortedByDateDa);
+            (fundraiser.fundUpdate).sort(middleware.sortedByDateDa);
             db_user.findOne({_id: fundraiser.fund_author}, function(err, user){
                 res.render("fundraiser/fundraiserDetail", {tFundraiser: fundraiser, tUser: user, dArray: donateArray});
             });
@@ -101,6 +101,16 @@ router.post("/donate/:id", function(req, res){
             donateFundraiser.save(function(err, complete){});
         });
 
+        ((req.user).logHistory).push({
+            date: Date.now(),
+            type: "Donate",
+            target: donateFundraiser.fund_name,
+            link: "/fundraiser/id/" + req.params.id,
+            amount: req.body.donateBox
+        });
+        ((req.user).logHistory).sort(middleware.sortedByDateDa);
+        (req.user).save(function(err, complete){});
+
         setTimeout(function(){
            res.redirect("/fundraiser/id/" + req.params.id);
         },100);
@@ -124,14 +134,24 @@ router.post("/addFundraiser", upload.single('Image'), function(req, res){
         fundHistory: [],
         fundUpdate: [],
         fund_author: req.user.id,
-        adminConfirm: false
+        adminConfirm: true
     });
 
     fundraiReg.save(function(err, fundraiser){
         if (err) res.redirect("/fundraiser/add");
         else {
             var fundraiArray = req.user.fundraiOwner;
+
             fundraiArray.push({fundraiserID: fundraiser._id});
+            ((req.user).logHistory).push({
+                date: Date.now(),
+                type: "Add Fundraiser",
+                target: fundraiser.fund_name,
+                link: "/fundraiser/id/" + fundraiser._id,
+                amount: 0
+            });
+            ((req.user).logHistory).sort(middleware.sortedByDateDa);
+
             (req.user).save(function(err, complete){
                 if (err) res.redirect("/fundraiser/add");
                 else res.redirect("/fundraiser");
@@ -142,7 +162,8 @@ router.post("/addFundraiser", upload.single('Image'), function(req, res){
 
 router.get("/id/:id/edit", function(req, res){
     db_fundraiser.findById(req.params.id, function(err, fundraiser){
-        res.render("fundraiser/fundraiserEdit", {tFundraiser: fundraiser});
+        if((req.user)._id == fundraiser.fund_author) res.render("fundraiser/fundraiserEdit", {tFundraiser: fundraiser});
+        else res.redirect("back");
     });
 })
 
@@ -152,9 +173,46 @@ router.post("/id/:id/edit", function(req, res){
         if (req.body.fundtopic != "") fundraiser.fund_title = req.body.fundtopic;
         if (req.body.funddesc != "") fundraiser.fund_description = req.body.funddesc;
 
+        ((req.user).logHistory).push({
+            date: Date.now(),
+            type: "Edit Fundraiser",
+            target: fundraiser.fund_name,
+            link: "/fundraiser/id/" + fundraiser._id,
+            amount: 0
+        });
+        ((req.user).logHistory).sort(middleware.sortedByDateDa);
+
+        (req.user).save(function(err, complete){});
+
         fundraiser.save(function(err, complete){
             if(err) req.flash("error", "Edit Fundraiser Uncomplete");
             else req.flash("success", "Edit Fundraiser Complete");
+            res.redirect('/fundraiser/id/' + req.params.id);
+        });
+    });
+})
+
+router.post("/id/:id/editUpdate", function(req, res){
+    db_fundraiser.findById(req.params.id, function(err, fundraiser){
+        (fundraiser.fundUpdate).push({
+            date: Date.now(),
+            update_descript : req.body.fundUpdate
+        });
+
+        ((req.user).logHistory).push({
+            date: Date.now(),
+            type: "Update Fundraiser",
+            target: fundraiser.fund_name,
+            link: "/fundraiser/id/" + fundraiser._id,
+            amount: 0
+        });
+        ((req.user).logHistory).sort(middleware.sortedByDateDa);
+
+        (req.user).save(function(err, complete){});
+
+        fundraiser.save(function(err, complete){
+            if(err) req.flash("error", "Add Update Uncomplete");
+            else req.flash("success", "Add Update Complete");
             res.redirect('/fundraiser/id/' + req.params.id);
         });
     });
@@ -169,6 +227,18 @@ router.post("/id/:id/editPic", upload.single('Image'), function(req, res){
         });
 
         fundraiser.fund_image = req.file.filename;
+
+        ((req.user).logHistory).push({
+            date: Date.now(),
+            type: "Picture Fundraiser",
+            target: fundraiser.fund_name,
+            link: "/fundraiser/id/" + fundraiser._id,
+            amount: 0
+        });
+        ((req.user).logHistory).sort(middleware.sortedByDateDa);
+
+        (req.user).save(function(err, complete){});
+
         fundraiser.save(function(err, complete){
             if(err) req.flash("error", "Change Fundraiser Picture Uncomplete");
             else req.flash("success", "Change Fundraiser Picture Complete");
@@ -177,7 +247,7 @@ router.post("/id/:id/editPic", upload.single('Image'), function(req, res){
     });
 });
 
-router.get("/yourFundraiser", function(req, res){
+router.get("/yourFundraiser", middleware.isLoggedIn, function(req, res){
     db_fundraiser.find({fund_author: (req.user)._id}, function(err, yFundraiser){
         res.render("fundraiser/yourfundraiser", {cFundraiser: yFundraiser});
     });

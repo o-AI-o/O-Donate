@@ -18,53 +18,35 @@
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
             <h3 style="text-align: center;">CHILDREN</h3>
             <p>Each day, more than 30,000 children die of poverty-related causes. Today, poverty kills one child every 3 seconds.<br> 
-              Children are the primary victims of poverty, and poverty is the principal cause of violations pertaining to Children’s Rights.</p>
+                Children are the primary victims of poverty, and poverty is the principal cause of violations pertaining to Children’s Rights.</p>
         </div>
 
         <div class="bgimg-2">
-          <div class="caption">
-            <a class="border" href="/fundraiser/category/Children">CLICK HERE TO DONATE FOR CHILDREN</a>
-          </div>
+            <div class="caption">
+                <a class="border" href="/fundraiser/category/Children">CLICK HERE TO DONATE FOR CHILDREN</a>
+            </div>
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Fun Name</h5>
-                    <p class="card-text text-left">Fun topic</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
+            <div class="container">
+                <div class="row">
+                    <% let i = 0 %>
+                    <% aChildren.some(function (fu){ %>
+                        <% i = i + 1 %>
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= fu.fund_name %></h5>
+                                    <p class="card-text text-left"><%= fu.fund_title %></p>
+                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% return (i == 3) %>
+                    <% }); %>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-
             </div>
-          </div>
         </div>
 
         <div class="bgimg-3">
@@ -72,111 +54,73 @@
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-            <h3 style="text-align: center;">hospital</h3>
-            <p>ABOUT hospital</p>
+            <h3 style="text-align: center;">HOSPITAL</h3>
+            <p>Glance around any patient room or treatment area and you will see the impact of your donation. In addition to equipment,<br>donors also support research programs, education for hospital staff and redevelopment.</p>
         </div>
 
         <div class="bgimg-4">
-          <div class="caption">
-            <a class="border" href="/fundraiser/category/Hospital">CLICK HERE TO DONATE FOR HOSPITAL</a>
-          </div>
+            <div class="caption">
+                <a class="border" href="/fundraiser/category/Hospital">CLICK HERE TO DONATE FOR HOSPITAL</a>
+            </div>
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
+            <div class="container">
+                <div class="row">
+                    <% i = 0 %>
+                    <% aHospital.some(function (fu){ %>
+                        <% i = i + 1 %>
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= fu.fund_name %></h5>
+                                    <p class="card-text text-left"><%= fu.fund_title %></p>
+                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% return (i == 3) %>
+                    <% }); %>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-              
             </div>
-          </div>
         </div>
-      
-        
 
         <div class="bgimg-5">
 
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-          <h3 style="text-align: center;">animals</h3>
-          <p>about animals</p>
+            <h3 style="text-align: center;">ANIMALS</h3>
+            <p>Animals have no safety net in society, no voices of their own, and very few rights under the law but they touch our hearts in deep and meaningful ways.</p>
         </div>
 
         <div class="bgimg-6">
-          <div class="caption">
-            <a class="border" href="/fundraiser/category/Animal">CLICK HERE TO DONATE FOR ANIMALS</a>
-          </div>
+            <div class="caption">
+                <a class="border" href="/fundraiser/category/Animal">CLICK HERE TO DONATE FOR ANIMALS</a>
+            </div>
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
+            <div class="container">
+                <div class="row">
+                    <% i = 0 %>
+                    <% aAnimal.some(function (fu){ %>
+                        <% i = i + 1 %>
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= fu.fund_name %></h5>
+                                    <p class="card-text text-left"><%= fu.fund_title %></p>
+                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% return (i == 3) %>
+                    <% }); %>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-              
             </div>
-          </div>
         </div>
 
         <div class="bgimg-7">
@@ -185,7 +129,7 @@
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
           <h3 style="text-align: center;">nature</h3>
-          <p>about natual</p>
+          <p>Be part of a passionate community of people determined to transform nature’s future. Your donation helps fund the most urgent on-the-ground conservation efforts to protect and restore our natural world. As a Nature Conservancy member, you can feel confident that you are doing your part for our planet.</p>
         </div>
 
         <div class="bgimg-8">
@@ -195,45 +139,26 @@
         </div>
 
         <div style="color: #777; background-color:white; text-align:center; padding:50px 80px; text-align: justify;">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
+            <div class="container">
+                <div class="row">
+                    <% i = 0 %>
+                    <% aNature.some(function (fu){ %>
+                        <% i = i + 1 %>
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/uploads/fundraisers/<%= fu.fund_image %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= fu.fund_name %></h5>
+                                    <p class="card-text text-left"><%= fu.fund_title %></p>
+                                    <a href="/fundraiser/id/<%= fu._id %>" class="btn btn-primary">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% return (i == 3) %>
+                    <% }); %>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1601&q=80" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text text-left">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-              
             </div>
-          </div>
         </div>
-
     </div> 
     <%- include("partials/footer") %>
 </body>

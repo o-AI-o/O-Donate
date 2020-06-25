@@ -5,7 +5,7 @@ let donateListData = new mongoose.Schema({
 });
 
 let updateListData = new mongoose.Schema({
-    update_date     : Date,
+    date            : Date,
     update_descript : String
 });
 

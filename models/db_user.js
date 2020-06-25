@@ -1,9 +1,17 @@
 const   mongoose      = require("mongoose"),
         passportLM    = require("passport-local-mongoose");
 
+let historyList = new mongoose.Schema({
+    date        : Date,
+    type        : String,
+    target      : String,
+    link        : String,
+    amount      : Number
+});
+
 let fundraiList = new mongoose.Schema({
     fundraiserID: String
-})
+});
 
 let userSchema = new mongoose.Schema({
     username    : String,
@@ -20,7 +28,8 @@ let userSchema = new mongoose.Schema({
     contactTwit : String,
     contactIG   : String,
     joinDate    : Date,
-    fundraiOwner: [fundraiList], 
+    fundraiOwner: [fundraiList],
+    logHistory  : [historyList],
     confirmed   : Boolean
 });
 

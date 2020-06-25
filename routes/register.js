@@ -1,7 +1,6 @@
 const   express         = require('express'),
         multer          = require('multer'),
-        path            = require('path'),
-        passport        = require('passport');
+        path            = require('path');
 
 const   db_user         = require('../models/db_user'),
         middleware      = require('../middleware');
@@ -46,13 +45,24 @@ router.post('/', function(req,res){
         contactIG: "",
         joinDate: Date.now(),
         fundraiOwner: [],
+        logHistory: [],
         confirmed: false
     });
 
     db_user.register(userReg, req.body.password, function(err, user){
         if(err) return res.render('register');
         console.log("Verify Link: http://localhost:1412/verify/id/" + user._id);
-        return res.redirect('/register/complete');
+        (user.logHistory).push({
+            date: Date.now(),
+            type: "Account Create",
+            target: "",
+            link: "",
+            amount: 0
+        });
+        (user.logHistory).sort(middleware.sortedByDateDa);
+        user.save(function(err, complete){
+            return res.redirect('/register/complete');
+        });
     });
 });
 
